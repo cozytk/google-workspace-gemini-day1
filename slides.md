@@ -210,7 +210,7 @@ layout: section
 
 <div class="screenshot-layout">
   <div>
-    <img :src="'./screenshots/gemini-page.png'" alt="Gemini public service page screenshot" />
+    <PublicImage src="screenshots/gemini-page.png" alt="Gemini public service page screenshot" />
   </div>
   <div>
     <simple-icons-googlegemini />
@@ -460,7 +460,7 @@ layout: section
 
 <div class="screenshot-layout notebook">
   <div>
-    <img :src="'./screenshots/notebooklm-three-panel.png'" alt="NotebookLM official three panel UI screenshot" />
+    <PublicImage src="screenshots/notebooklm-three-panel.png" alt="NotebookLM official three panel UI screenshot" />
   </div>
   <div>
     <b>Sources · Chat · Studio</b>
