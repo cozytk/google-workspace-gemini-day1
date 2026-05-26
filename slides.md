@@ -210,7 +210,7 @@ layout: section
 
 <div class="screenshot-layout">
   <div>
-    <img :src="'/screenshots/gemini-page.png'" alt="Gemini public service page screenshot" />
+    <img :src="'./screenshots/gemini-page.png'" alt="Gemini public service page screenshot" />
   </div>
   <div>
     <simple-icons-googlegemini />
@@ -354,11 +354,11 @@ layout: section
   </div>
 </div>
 
-```md
+<CopyBlock>
 [예시 1] 계약서 검토 요청 → 계약 / 긴급도 높음 / 법무 확인 필요
 [예시 2] 정산 누락 문의 → 정산 / 긴급도 중간 / 매입 자료 확인 필요
 아래 신규 요청도 같은 기준으로 분류하고, 근거와 확인 질문을 함께 작성해 주세요.
-```
+</CopyBlock>
 
 ---
 
@@ -383,11 +383,11 @@ layout: section
 
 <div class="spacer-sm"></div>
 
-```md
+<CopyBlock>
 당신은 본사 경영관리팀의 월간 KPI 리포트 검토자입니다.
 아래 시트 데이터를 기준으로 이상치, 원인 가설, 추가 확인 질문을 분리해 주세요.
 근거가 부족한 내용은 "확인 필요"로 표시하고, 추정 문장을 확정처럼 쓰지 마세요.
-```
+</CopyBlock>
 
 ---
 
@@ -460,7 +460,7 @@ layout: section
 
 <div class="screenshot-layout notebook">
   <div>
-    <img :src="'/screenshots/notebooklm-three-panel.png'" alt="NotebookLM official three panel UI screenshot" />
+    <img :src="'./screenshots/notebooklm-three-panel.png'" alt="NotebookLM official three panel UI screenshot" />
   </div>
   <div>
     <b>Sources · Chat · Studio</b>
@@ -536,9 +536,9 @@ layout: section
   </div>
 </div>
 
-```txt
+<CopyBlock class="compact">
 =GEMINI("이 요청을 계약/정산/인사/기타로 분류하고, 담당자에게 보낼 답장 초안을 작성해줘", A2:D2)
-```
+</CopyBlock>
 
 ---
 
@@ -682,7 +682,7 @@ layout: section
   <div><logos-google-gmail /><b>Gmail 발송</b><span>확인 메일 자동 회신</span></div>
 </div>
 
-```js
+<CopyBlock>
 function onFormSubmit(e) {
   const row = e.values
   const requester = row[1]
@@ -694,7 +694,7 @@ function onFormSubmit(e) {
     '요청이 접수되었습니다. 담당자 확인 후 회신드리겠습니다.'
   )
 }
-```
+</CopyBlock>
 
 ---
 
@@ -713,13 +713,13 @@ function onFormSubmit(e) {
   </div>
 </div>
 
-```js
+<CopyBlock>
 function fetchExchangeRate() {
   const res = UrlFetchApp.fetch('https://api.example.com/rates-or-news')
   const data = JSON.parse(res.getContentText())
   SpreadsheetApp.getActiveSheet().appendRow([new Date(), data.usdKrw])
 }
-```
+</CopyBlock>
 
 ---
 
@@ -1062,7 +1062,7 @@ layout: section
   </div>
 </div>
 
-```md
+<CopyBlock>
 Agent 이름:
 사용자:
 반복 업무:
@@ -1070,7 +1070,7 @@ Agent 이름:
 Agent가 호출할 도구:
 성공 기준:
 사람 승인 지점:
-```
+</CopyBlock>
 
 ---
 
@@ -1083,13 +1083,15 @@ Agent가 호출할 도구:
     <b>오늘 작성할 정도</b>
     <span>완성 코드가 아니라 Day 2 개발자가 바로 시작할 수 있는 입력, 도구, 검증 흐름의 뼈대를 남긴다.</span>
   </div>
-  <pre><code>const agentPlan = {
+  <CopyBlock class="embedded">
+const agentPlan = {
   name: '사내 규정 Q&A Agent',
   input: ['규정 문서', '직원 질문'],
   tools: ['Gemini API', 'Drive Search', 'RAG'],
   output: ['답변', '근거 문서', '확인 필요 항목'],
   approval: '민감 규정은 HR 담당자 승인 후 발송'
-}</code></pre>
+}
+  </CopyBlock>
 </div>
 
 ---

@@ -3612,20 +3612,64 @@ body,
   line-height: 1.45;
 }
 
-.prototype-layout pre {
+.copy-code {
+  position: relative;
+  margin-top: 0.95rem;
+}
+
+.copy-code button {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.65rem;
+  z-index: 2;
+  border: 1px solid #b7cdf5;
+  border-radius: 999px;
+  padding: 0.34rem 0.72rem;
+  background: #ffffff;
+  color: #174ea6;
+  font-family: var(--ag-font-family);
+  font-size: 0.78rem;
+  font-weight: var(--fw-black);
+  cursor: pointer;
+}
+
+.copy-code button:hover {
+  background: #eef4ff;
+}
+
+.copy-code pre {
   margin: 0;
-  min-height: 270px;
   border: 1px solid #d7e4fa;
   border-radius: 14px;
-  padding: 1rem;
+  padding: 2.15rem 1rem 0.9rem;
   background: #ffffff;
   overflow: hidden;
 }
 
-.prototype-layout code {
+.copy-code code {
   color: #263348;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
   font-size: 0.78rem;
   line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.copy-code.compact pre {
+  min-height: 72px;
+}
+
+.prototype-layout .copy-code {
+  margin-top: 0;
+}
+
+.prototype-layout .copy-code pre {
+  margin: 0;
+  min-height: 270px;
+}
+
+.prototype-layout .copy-code code {
+  font-size: 0.78rem;
 }
 
 .slidev-layout:has(> .kicker + h1 + .debrief-grid) .debrief-grid {
