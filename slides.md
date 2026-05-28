@@ -13,13 +13,17 @@ download: true
 
 # Google Workspace 자동화와<br/>Agent 기획
 
-<p class="lead">Workspace · Apps Script · Looker Studio 심화 실습을 통해 교육 후 즉시 활용 가능한 자동화 툴과 Agent 기획서를 만듭니다.</p>
+<p class="lead">Workspace · Apps Script · Data Studio 심화 실습을 통해 교육 후 즉시 활용 가능한 자동화 툴과 Agent 기획서를 만듭니다.</p>
 
 <div class="tool-strip">
   <span><logos-google-gemini /> Gemini</span>
   <span><logos-google-workspace /> Workspace</span>
-  <span><logos-google-data-studio /> Looker Studio</span>
+  <span><logos-google-data-studio /> Data Studio</span>
   <span><carbon-flow /> 자동화 흐름</span>
+</div>
+
+<div class="source-line">화면 상단 안내처럼 Looker Studio가 Data Studio로 변경되었습니다. 이하 장표에서는 Data Studio라고 부릅니다.<br />
+  <span>출처: <a href="https://cloud.google.com/blog/products/data-analytics/looker-studio-is-data-studio" target="_blank" rel="noreferrer">Google Cloud Blog, 2026-04-11</a></span>
 </div>
 
 ---
@@ -33,12 +37,12 @@ download: true
     <em>Day 1</em>
     <b>Google Workspace 자동화</b>
     <span>업무 데이터를 정리하고, 반복 처리 파이프라인을 만든 뒤, Agent로 풀 문제를 선별한다.</span>
-    <div class="tool-tags"><i>Gemini</i><i>Apps Script</i><i>Looker Studio</i></div>
+    <div class="tool-tags"><i>Gemini</i><i>Apps Script</i><i>Data Studio</i></div>
     <strong>산출물: 자동화 툴 + Agent 기획서 + 프로토타입 코드</strong>
   </div>
   <div class="day-card">
     <em>Day 2</em>
-    <b>Gemini API + Antigravity Agent 개발</b>
+    <b>Gemini + Antigravity Agent 개발</b>
     <span>Function Calling, RAG, Agent Loop를 이해하고 실제 부서 Painpoint 해결 Agent를 만든다.</span>
     <div class="tool-tags"><i>Gemini API</i><i>Antigravity</i><i>RAG</i></div>
     <strong>산출물: 동작하는 Agent 서비스</strong>
@@ -67,7 +71,7 @@ download: true
   <div>
     <span>⚙️ <strong>처리</strong></span>
     <b>Workspace 자동화 실습</b>
-    <p>Gemini, Apps Script, Looker Studio로 바로 쓰는 자동화 산출물을 만든다.</p>
+    <p>Gemini, Apps Script, Data Studio로 바로 쓰는 자동화 산출물을 만든다.</p>
   </div>
   <div>
     <span>📤 <strong>출력</strong></span>
@@ -82,7 +86,7 @@ download: true
 
 # 1일차 상세 커리큘럼
 
-<p class="sublead">Workspace · Apps Script · Looker Studio 심화 실습 과정으로, 각 파트는 바로 사용할 산출물 하나를 남깁니다.</p>
+<p class="sublead">Workspace · Apps Script · Data Studio 심화 실습 과정으로, 각 파트는 바로 사용할 산출물 하나를 남깁니다.</p>
 
 <div class="curriculum-board">
   <div>
@@ -111,9 +115,9 @@ download: true
   </div>
   <div>
     <em>14:30–16:00</em>
-    <b>Looker Studio: 의사결정용 실시간 대시보드</b>
+    <b>Data Studio: 의사결정용 실시간 대시보드</b>
     <ul>
-      <li>Sheets → Looker Studio 실시간 연결</li>
+      <li>Sheets → Data Studio 실시간 연결</li>
       <li>스코어카드 · 트렌드 라인 · 드릴다운 필터</li>
       <li>부서별 KPI 대시보드와 공유 URL</li>
       <li>Apps Script 스케줄러 기반 자동 갱신</li>
@@ -147,7 +151,6 @@ download: true
   <div class="time-slot lunch">
     <b>11:00–12:00</b>
     <span>점심시간</span>
-    <em>오전 실습 결과 저장, 오후 자동화 실습 준비</em>
   </div>
   <div class="time-slot">
     <b>12:00–14:30</b>
@@ -156,7 +159,7 @@ download: true
   </div>
   <div class="time-slot">
     <b>14:30–16:00</b>
-    <span>Looker Studio 대시보드</span>
+    <span>Data Studio 대시보드</span>
     <em>실시간 연결 · KPI 화면 · 자동 갱신</em>
   </div>
   <div class="time-slot">
@@ -181,7 +184,7 @@ download: true
   <div>
     <span>📊</span>
     <b>KPI 대시보드 URL</b>
-    <p>Looker Studio 스코어카드, 트렌드 라인, 드릴다운 필터와 자동 갱신 구조</p>
+    <p>Data Studio 스코어카드, 트렌드 라인, 드릴다운 필터와 자동 갱신 구조</p>
   </div>
   <div>
     <span>🤖</span>
@@ -191,6 +194,35 @@ download: true
 </div>
 
 <div class="evidence-band">완료 증거: 자동화 실행 결과 · 대시보드 공유 URL · Agent PRD 초안 · 프로토타입 코드 스케치</div>
+
+---
+
+<div class="kicker">Day 1 > 실습 운영 > 계정 체크</div>
+
+# 실습 전 계정 체크
+
+<div class="account-check-grid">
+  <div>
+    <carbon-user-avatar />
+    <b>Chrome 프로필</b>
+    <span>교육용 Google Workspace 계정으로 전환합니다.</span>
+  </div>
+  <div>
+    <carbon-cloud />
+    <b>Drive 저장 가능</b>
+    <span>Sheets, Apps Script, NotebookLM 노트북이 저장될 수 있어야 합니다.</span>
+  </div>
+  <div>
+    <carbon-security-services />
+    <b>권한 승인 경계</b>
+    <span>Gmail 발송, Calendar와 Drive 권한 승인, 외부 공유는 권한 안내 화면의 범위를 확인한 뒤 진행합니다.</span>
+  </div>
+  <div>
+    <carbon-data-table />
+    <b>샘플 데이터만 사용</b>
+    <span>장표의 합성 데이터로 실습하고 실제 고객·계약·인사 정보는 넣지 않습니다.</span>
+  </div>
+</div>
 
 ---
 layout: section
@@ -215,36 +247,37 @@ layout: section
   <div>
     <simple-icons-googlegemini />
     <b>Gemini</b>
-    <span>질문 입력창, 모델 선택, 도구 호출이 한 화면에 있는 범용 AI assistant입니다. 오늘은 이 대화형 사용법을 Workspace 데이터 처리로 확장합니다.</span>
-    <small>출처: gemini.google.com 공개 화면 캡처</small>
+    <span>질문 입력창, 모델 선택, 도구 호출이 한 화면에 있는 범용 AI assistant입니다. ex) GPT(OpenAI), Claude(Anthropic) </span>
+    <span> 오늘은 이 대화형 사용법을 Workspace 데이터 처리로 확장합니다.</span>
+    <small>출처: <a href="https://gemini.google.com/">gemini.google.com 공개 화면</a> 캡처</small>
   </div>
 </div>
 
 ---
 
-<div class="kicker">Day 1 > Gemini와 Workspace > 모델 이해</div>
+<div class="kicker">Day 1 > Gemini와 Workspace > 모델 선택</div>
 
-# Gemini 3.5 Flash
+# Gemini 모델과 사고 수준 선택
 
-<div class="model-compare">
-  <div class="model-primary">
-    <simple-icons-googlegemini />
-    <b>Gemini 3.5 Flash</b>
-    <p>Google이 2026년 5월 발표한 최신 Flash 모델입니다. agentic task와 coding 성능, 속도를 강조하며 Gemini app, AI Mode, Gemini API, Antigravity, Gemini Enterprise에서 제공됩니다.</p>
-  </div>
-  <div>
-    <simple-icons-openai />
-    <b>OpenAI GPT</b>
-    <p>비슷한 범주의 범용 LLM 제품군. 업무에서는 초안 작성, 추론, 코드 생성, 도구 호출 비교 대상으로 자주 등장합니다.</p>
-  </div>
-  <div>
-    <simple-icons-claude />
-    <b>Anthropic Claude</b>
-    <p>비슷한 범주의 범용 LLM 제품군. 긴 문서 읽기, 분석, 안전성 기준 비교 대상으로 자주 언급됩니다.</p>
+<div class="model-thinking-layout">
+  <figure class="model-menu-shot">
+    <PublicImage src="screenshots/gemini-model-thinking-menu.png" alt="Gemini model picker and thinking level menu" />
+    <figcaption>실습 화면: 모델 선택 메뉴와 사고 수준(Standard/Extended)</figcaption>
+  </figure>
+  <div class="model-thinking-copy">
+    <div class="model-lineup">
+      <div><b>3.1 Flash-Lite</b><span>가벼운 반복 작업, 빠른 초안, 대량 처리</span></div>
+      <div class="active"><b>3.5 Flash</b><span>일상 업무 질의와 추론의 균형</span></div>
+      <div><b>3.1 Pro</b><span>복잡한 수학·코딩·긴 문서 분석</span></div>
+    </div>
+    <div class="thinking-choice">
+      <h3><carbon-decision-tree /> 사고 수준은 속도와 추론 깊이의 조절 장치</h3>
+      <p><b>Standard</b>는 대부분의 질문에 적합한 기본값입니다. <br /><b>Extended</b>는 복잡한 문제 해결, 다단계 계획, 코드 검증처럼 더 깊은 추론이 필요한 때 선택합니다.</p>
+    </div>
   </div>
 </div>
 
-<div class="source-line">출처: Google Blog, “Gemini 3.5: frontier intelligence with action”, 2026-05</div>
+<div class="source-line">근거: <a href="https://support.google.com/gemini/answer/13275745?co=GENIE.Platform%3DDesktop&hl=nl">Gemini Apps Help: 모델 전환과 Flash-Lite/Flash/Pro 설명</a> · <a href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/thinking">Google Cloud: Gemini thinking levels</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">Google Blog: Gemini 3.1 Pro</a></div>
 
 ---
 
@@ -252,18 +285,32 @@ layout: section
 
 # Google Workspace
 
-<div class="tool-intro-grid">
-  <div>
-    <logos-google-workspace />
-    <b>업무 데이터가 생기는 곳</b>
-    <span>Gmail, Docs, Sheets, Slides, Drive, Calendar는 업무 요청, 문서, 표, 파일, 일정이 실제로 쌓이는 작업 공간입니다.</span>
-  </div>
-  <div>
-    <carbon-flow />
-    <b>AI가 붙는 방식</b>
-    <span>Gemini는 Workspace 안의 데이터를 읽고, 분류하고, 초안을 만들고, Apps Script/Looker Studio와 연결되어 실행 흐름이 됩니다.</span>
+<div class="workspace-ecosystem">
+  <figure class="workspace-image-card">
+    <img src="https://platform.flow.team/hs-fs/hubfs/%5Bflow%5D/%ED%94%8C%EB%9E%AB%ED%8F%BC%EC%82%AC%EC%97%85%EB%B6%80/Google-Workspace-as-an-CRM-1024x546.jpeg?width=1024&amp;height=546&amp;name=Google-Workspace-as-an-CRM-1024x546.jpeg" alt="Google Workspace ecosystem" />
+    <figcaption>이미지 출처: Flow Team Blog, 2025-06-04</figcaption>
+  </figure>
+  <div class="workspace-ecosystem-copy">
+    <h3><logos-google-workspace /> 하나의 계정으로 연결되는 업무 생태계</h3>
+    <p>Google Workspace는 메일 하나가 아니라 커뮤니케이션, 일정, 파일 저장, 공동 편집, 설문, 사이트, AI 보조 기능이 한 계정과 권한 체계 안에서 움직이는 클라우드 협업 플랫폼입니다.</p>
+    <div class="workspace-pill-cloud">
+      <span><logos-google-gmail /> Gmail</span>
+      <span><logos-google-calendar /> Calendar</span>
+      <span><logos-google-meet /> Meet</span>
+      <span><simple-icons-googlechat /> Chat</span>
+      <span><logos-google-drive /> Drive</span>
+      <span><simple-icons-googledocs /> Docs</span>
+      <span><simple-icons-googlesheets /> Sheets</span>
+      <span><simple-icons-googleslides /> Slides</span>
+      <span><simple-icons-googleforms /> Forms</span>
+      <span><simple-icons-googleappsscript /> Apps Script</span>
+      <span><logos-google-gemini /> Gemini</span>
+      <span><logos-google-data-studio /> Data Studio</span>
+    </div>
   </div>
 </div>
+
+<div class="source-line">참고: <a href="https://platform.flow.team/blog/gws-purpose">Flow Team Blog: 구글 워크스페이스로 팀워크 혁신</a> · <a href="https://workspace.google.com/">Google Workspace 공식 소개</a></div>
 
 ---
 
@@ -271,12 +318,37 @@ layout: section
 
 # Workspace AI 처리 흐름
 
-<div class="process-list">
-  <div><em>01</em><b>수집</b><span>Docs · Gmail · Drive · Forms에서 업무 맥락과 원천 데이터를 모은다.</span></div>
-  <div><em>02</em><b>분류</b><span>Gemini로 요청 유형, 긴급도, 담당 조직, 후속 액션을 태깅한다.</span></div>
-  <div><em>03</em><b>요약/검증</b><span>보고 가능한 문장으로 바꾸고 근거·확인 질문을 함께 남긴다.</span></div>
-  <div><em>04</em><b>전달</b><span>Sheets, Gmail, Slides, Looker Studio로 결과물을 배포한다.</span></div>
+<div class="workspace-flow-map">
+  <div class="flow-lane source">
+    <h3>업무 신호</h3>
+    <div class="flow-icons">
+      <span><logos-google-gmail />메일</span>
+      <span><simple-icons-googleforms />신청</span>
+      <span><simple-icons-googledocs />문서</span>
+      <span><logos-google-drive />파일</span>
+      <span><logos-google-calendar />일정</span>
+    </div>
+  </div>
+  <div class="flow-arrow"><carbon-arrow-right /></div>
+  <div class="flow-lane ai">
+    <h3><logos-google-gemini /> Gemini 판단</h3>
+    <p>분류 · 요약 · 확인 질문 · 근거 추출</p>
+    <strong>“어떤 업무인가?” → “누가 무엇을 해야 하나?”</strong>
+  </div>
+  <div class="flow-arrow"><carbon-arrow-right /></div>
+  <div class="flow-lane action">
+    <h3>실행과 공유</h3>
+    <div class="flow-icons">
+      <span><simple-icons-googlesheets />Sheets 기록</span>
+      <span><logos-google-gmail />Gmail 초안</span>
+      <span><simple-icons-googleslides />Slides 보고</span>
+      <span><logos-google-data-studio />Data Studio</span>
+      <span><simple-icons-googleappsscript />Apps Script</span>
+    </div>
+  </div>
 </div>
+
+<div class="evidence-band">핵심은 “앱 하나 사용법”이 아니라, Workspace 앱들이 같은 계정·권한·파일을 공유하며 AI 처리 파이프라인을 만든다는 점입니다.</div>
 
 ---
 
@@ -284,50 +356,129 @@ layout: section
 
 # 프롬프트 기본 개념
 
-<div class="definition-grid">
-  <div>
+<div class="prompt-concept">
+  <div class="prompt-definition">
     <carbon-chat />
-    <b>프롬프트</b>
-    <span>AI에게 맡길 역할, 입력 데이터, 출력 형식, 금지 조건, 검증 기준을 적은 작업 지시문</span>
+    <div>
+      <b>프롬프트 = AI에게 맡길 업무 지시서</b>
+      <p>역할, 입력 데이터, 판단 기준, 출력 형식, 금지 조건, 검증 기준을 한 번에 적어 AI가 같은 방식으로 반복 처리하게 만드는 작업 명세입니다.</p>
+    </div>
   </div>
-  <div>
-    <carbon-document />
-    <b>업무형 프롬프트</b>
-    <span>“잘 답해줘”가 아니라 “이 업무 기준으로 분류하고, 근거와 확인 질문을 남겨줘”에 가깝다.</span>
-  </div>
-  <div>
-    <carbon-checkmark />
-    <b>완료 기준</b>
-    <span>응답 문장보다 재사용 가능한 지시 구조와 검토 가능한 근거가 남아야 한다.</span>
+  <div class="prompt-tip-grid">
+    <div>
+      <em>Tip 1</em>
+      <b>업무형 프롬프트는 기준을 먼저 준다</b>
+      <span>“잘 요약해줘”보다 “요청 유형·긴급도·담당 부서 기준으로 분류하고, 판단 근거를 같이 남겨줘”처럼 업무 규칙을 명시합니다.</span>
+    </div>
+    <div>
+      <em>Tip 2</em>
+      <b>완료 기준은 검토 가능해야 한다</b>
+      <span>최종 답변뿐 아니라 표 구조, 근거 문장, 확인 질문, 재사용 가능한 출력 형식이 남아야 팀 업무에 붙일 수 있습니다.</span>
+    </div>
   </div>
 </div>
 
 ---
 
-<div class="kicker">Day 1 > Gemini와 Workspace > Gem 세트</div>
+<div class="kicker">Day 1 > Gemini와 Workspace > Gem 세트 1/4</div>
 
-# 부서 맞춤형 Gem 세트
+# Gem 요소 1: 역할
 
-<div class="gem-system-grid">
-  <div>
-    <em>01</em>
-    <b>역할</b>
-    <span>“본사 HR 운영팀”, “경영관리 KPI 검토자”처럼 책임과 판단 범위를 고정한다.</span>
+<div class="gem-compare-slide">
+  <div class="gem-principle">
+    <em>Role</em>
+    <b>역할은 “누구처럼 말할지”가 아니라 “어떤 책임으로 판단할지”를 고정합니다.</b>
+    <p>부서, 업무 권한, 검토 범위, 최종 결정권의 유무가 들어가야 같은 요청을 반복 처리할 수 있습니다.</p>
   </div>
-  <div>
-    <em>02</em>
-    <b>업무 기준</b>
-    <span>분류 기준, 금지 표현, 승인 필요 조건, 조직 용어를 시스템 프롬프트에 넣는다.</span>
+  <div class="good-bad-grid">
+    <div class="bad-example">
+      <h3>아쉬운 예시</h3>
+      <pre class="gem-code"><code>너는 친절한 HR 전문가야.&#10;직원 질문에 잘 답해줘.</code></pre>
+      <span>문제: 부서 기준, 답변 권한, 승인 경계가 없어 민감한 규정도 확정 답변처럼 말할 수 있습니다.</span>
+    </div>
+    <div class="good-example">
+      <h3>좋은 예시</h3>
+      <pre class="gem-code"><code>너는 세아지주 본사 HR 운영팀의&#10;1차 규정 안내 담당자다.&#10;&#10;휴가·복리후생 질문에 답하되,&#10;해석이 필요한 사안은&#10;“HR 담당자 확인 필요”로 표시한다.</code></pre>
+      <span>포인트: 담당 부서, 업무 범위, 권한 경계를 함께 지정합니다.</span>
+    </div>
   </div>
-  <div>
-    <em>03</em>
-    <b>출력 형식</b>
-    <span>요약, 담당자, 긴급도, 근거, 확인 질문을 항상 같은 구조로 반환하게 한다.</span>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > Gem 세트 2/4</div>
+
+# Gem 요소 2: 업무 기준
+
+<div class="gem-compare-slide">
+  <div class="gem-principle">
+    <em>Policy</em>
+    <b>업무 기준은 AI가 임의로 판단하지 않도록 만드는 분류표입니다.</b>
+    <p>유형, 긴급도, 금지 표현, 승인 조건, 조직 용어를 명시하면 부서마다 다른 판단 기준을 재사용할 수 있습니다.</p>
   </div>
-  <div>
-    <em>04</em>
-    <b>검증</b>
-    <span>근거 없는 추정은 “확인 필요”로 표시하고, 발송 전 사람 승인 지점을 남긴다.</span>
+  <div class="good-bad-grid">
+    <div class="bad-example">
+      <h3>아쉬운 예시</h3>
+      <pre class="gem-code"><code>메일을 읽고 중요하면&#10;긴급으로 표시해줘.</code></pre>
+      <span>문제: “중요”와 “긴급”의 기준이 없어 사람마다 결과가 달라집니다.</span>
+    </div>
+    <div class="good-example">
+      <h3>좋은 예시</h3>
+      <pre class="gem-code"><code>긴급도는 다음 기준으로 분류한다.&#10;- 높음: D-1 이내 마감, 임원 요청, 법적 리스크&#10;- 중간: 3영업일 내 확인&#10;- 낮음: 참고 공유&#10;&#10;유형은 계약·정산·인사·기타 중&#10;하나만 선택한다.</code></pre>
+      <span>포인트: 판단 기준을 표준화하고 선택지를 제한합니다.</span>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > Gem 세트 3/4</div>
+
+# Gem 요소 3: 출력 형식
+
+<div class="gem-compare-slide">
+  <div class="gem-principle">
+    <em>Output</em>
+    <b>출력 형식은 결과를 Sheets, Gmail, 보고서로 바로 옮기기 위한 인터페이스입니다.</b>
+    <p>항목명, 순서, 빈 값 처리, 근거 표시 방식을 고정해야 자동화와 검토가 쉬워집니다.</p>
+  </div>
+  <div class="good-bad-grid">
+    <div class="bad-example">
+      <h3>아쉬운 예시</h3>
+      <pre class="gem-code"><code>요약해서&#10;답장 초안을 만들어줘.</code></pre>
+      <span>문제: 매번 문장 길이와 항목 순서가 바뀌어 시트나 자동화에 붙이기 어렵습니다.</span>
+    </div>
+    <div class="good-example">
+      <h3>좋은 예시</h3>
+      <pre class="gem-code"><code>JSON으로 출력한다.&#10;{&#10;  "유형": "",&#10;  "긴급도": "",&#10;  "담당부서": "",&#10;  "3줄요약": [],&#10;  "근거문장": "",&#10;  "확인질문": "",&#10;  "답장초안": ""&#10;}&#10;&#10;모르면 빈칸이 아니라&#10;“확인 필요”라고 적는다.</code></pre>
+      <span>포인트: 기계가 읽을 수 있는 구조와 예외 처리를 함께 정합니다.</span>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > Gem 세트 4/4</div>
+
+# Gem 요소 4: 검증
+
+<div class="gem-compare-slide">
+  <div class="gem-principle">
+    <em>Check</em>
+    <b>검증은 답을 더 길게 만드는 단계가 아니라 위험한 확정을 막는 안전장치입니다.</b>
+    <p>근거 없는 추정, 민감정보, 외부 발송, 권한 승인 지점을 분리해 사람이 확인할 수 있게 합니다.</p>
+  </div>
+  <div class="good-bad-grid">
+    <div class="bad-example">
+      <h3>아쉬운 예시</h3>
+      <pre class="gem-code"><code>확실하게 답변하고&#10;바로 메일로 보내줘.</code></pre>
+      <span>문제: 근거 부족, 개인정보, 승인 필요 여부를 건너뛰고 실행할 수 있습니다.</span>
+    </div>
+    <div class="good-example">
+      <h3>좋은 예시</h3>
+      <pre class="gem-code"><code>근거 문장이 없으면&#10;“확인 필요”로 표시한다.&#10;&#10;개인정보·계약·인사 조치가 포함되면&#10;발송하지 말고 승인자와 확인 질문을&#10;먼저 제시한다.</code></pre>
+      <span>포인트: 자동화 전에 멈춰야 할 조건을 Gem에 포함합니다.</span>
+    </div>
   </div>
 </div>
 
@@ -391,6 +542,23 @@ layout: section
 
 ---
 
+<div class="kicker">Day 1 > Gemini와 Workspace > Gemini 실습</div>
+
+# Gemini 실습 1: 업무 요청 분류
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/gemini-home.png" alt="Gemini prompt input walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><logos-google-gemini /> 붙여넣을 프롬프트</h3>
+    <CopyBlock class="compact" text-key="geminiRequestPrompt" />
+    <p>완료 증거: Flash 모드에서 표 형태 응답이 생성되었는지 확인합니다.</p>
+  </div>
+</div>
+
+---
+
 <div class="kicker">Day 1 > Gemini와 Workspace > 할루시네이션 방지</div>
 
 # 검증 루프 기본 개념
@@ -430,25 +598,22 @@ layout: section
 
 ---
 
-<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM</div>
+<div class="kicker">Day 1 > Gemini와 Workspace > Gemini 실습</div>
 
-# NotebookLM 기본 개념
+# Gemini 실습 1 결과 확인
 
-<div class="definition-grid">
-  <div>
-    <logos-google-icon />
-    <b>NotebookLM</b>
-    <span>업로드한 문서 묶음을 근거로 질문하고 요약하는 Google의 문서 기반 AI 노트북</span>
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/gemini-result.png" alt="Gemini response table walkthrough" />
   </div>
-  <div>
-    <carbon-document-attachment />
-    <b>Source Grounding</b>
-    <span>답변이 어떤 문서와 섹션을 근거로 하는지 추적하기 쉬워 사내 문서 Q&A에 적합하다.</span>
-  </div>
-  <div>
-    <carbon-network-4 />
-    <b>Day 2 연결</b>
-    <span>문서 묶음과 질문 목록은 RAG Agent의 초기 지식 베이스 후보가 된다.</span>
+  <div class="lab-side">
+    <h3><carbon-checkmark-outline /> 확인할 항목</h3>
+    <div class="mini-checklist">
+      <span>분류가 정산으로 나왔는가</span>
+      <span>긴급도와 근거가 분리되어 있는가</span>
+      <span>확인 질문이 바로 업무에 쓸 수 있는가</span>
+      <span>답장 초안에 과도한 확정 표현이 없는가</span>
+    </div>
   </div>
 </div>
 
@@ -456,18 +621,54 @@ layout: section
 
 <div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM</div>
 
-# NotebookLM: 사내 문서 RAG 허브
+# NotebookLM: 소스 기반 AI 노트북
 
-<div class="screenshot-layout notebook">
-  <div>
-    <PublicImage src="screenshots/notebooklm-three-panel.png" alt="NotebookLM official three panel UI screenshot" />
+<div class="notebook-intro">
+  <div class="notebook-hero-card">
+    <logos-google-icon />
+    <div>
+      <b>내 문서 묶음과 대화하는 Google AI 연구·학습 도구</b>
+      <p>NotebookLM은 PDF, 웹사이트, YouTube, 오디오, Google Docs/Slides 등 사용자가 넣은 자료를 하나의 노트북으로 묶고, 그 소스를 기반으로 질문·요약·학습 자료 생성을 돕는 서비스입니다.</p>
+    </div>
   </div>
-  <div>
-    <b>Sources · Chat · Studio</b>
-    <span>Google은 NotebookLM의 새 UI를 Sources, Chat, Studio의 3영역 구조로 설명합니다. 소스를 관리하고, 근거 기반으로 질문하며, Study Guide/Briefing Doc/Audio Overview 같은 산출물을 만듭니다.</span>
-    <small>출처: Google Blog, “NotebookLM gets a new look...”, 2024-12</small>
+  <div class="source-grounding-note">
+    <em><carbon-document-attachment /> Source Grounding</em>
+    <p>답변을 일반 웹 검색 지식이 아니라 <b>선택한 소스</b>에 연결하고, 인라인 citation으로 근거 문장 위치를 다시 확인하게 만드는 방식입니다.</p>
+  </div>
+  <small class="day2-link">작게 연결: Day 2에서는 이 “소스 묶음 + 질문 목록”을 RAG Agent의 지식 베이스 후보로 바꿔 봅니다.</small>
+</div>
+
+<div class="source-line">근거: <a href="https://support.google.com/notebooklm/answer/16164461?hl=en">NotebookLM Help: Learn about NotebookLM</a> · <a href="https://support.google.com/notebooklm/answer/16179559?hl=en">NotebookLM Help: Use chat and citations</a></div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM</div>
+
+# NotebookLM 화면 구조
+
+<p class="sublead compact">Sources · Chat · Studio 3개 패널로 소스를 넣고, 근거 기반으로 묻고, 산출물을 만듭니다.</p>
+
+<div class="notebook-ui-map">
+  <figure class="notebook-ui-shot">
+    <PublicImage src="screenshots/notebooklm-three-panel.png" alt="NotebookLM three panel UI with Sources, Chat, Studio" />
+  </figure>
+  <div class="notebook-panel-cards">
+    <div>
+      <h3><carbon-folder /> Sources</h3>
+      <p>왼쪽 패널에서 파일·웹·Drive 자료를 추가하고, 체크박스로 이번 질문에 사용할 소스만 선택합니다. 소스는 노트북의 “근거 데이터”입니다.</p>
+    </div>
+    <div>
+      <h3><carbon-chat /> Chat</h3>
+      <p>가운데 패널에서 소스 요약을 보고 질문합니다. 답변은 직접 인용·텍스트·이미지 citation으로 연결되어 원문 위치를 확인할 수 있습니다.</p>
+    </div>
+    <div>
+      <h3><carbon-microphone /> Studio</h3>
+      <p>오른쪽 패널은 소스 기반 산출물 제작 공간입니다. Audio Overview, Study guide, Briefing doc, FAQ, Timeline 같은 자료를 생성합니다.</p>
+    </div>
   </div>
 </div>
+
+<div class="source-line">근거: <a href="https://support.google.com/notebooklm/answer/16215270?co=GENIE.Platform%3DDesktop&hl=en">Sources 도움말</a> · <a href="https://support.google.com/notebooklm/answer/16179559?hl=en">Chat/citation 도움말</a> · <a href="https://support.google.com/notebooklm/answer/16206563?hl=en">Studio 패널 도움말</a> · <a href="https://support.google.com/notebooklm/answer/16212820?hl=en">Audio Overview 도움말</a></div>
 
 ---
 
@@ -479,17 +680,50 @@ layout: section
   <div>
     <b>🗂️ 소스 묶음</b>
     <span>Google은 NotebookLM을 “사용자가 가진 소스에 근거한 research assistant”로 설명합니다.</span>
-    <small>Google Blog, 2025-07</small>
+    <small><a href="https://support.google.com/notebooklm/answer/16215270?co=GENIE.Platform%3DDesktop&hl=en">NotebookLM Help: sources</a></small>
   </div>
   <div>
     <b>💬 실제 사용법</b>
     <span>최근 문서 10개를 한 노트북에 넣고 질문해보는 방식, 프로젝트별 노트북 운영 방식이 소개됩니다.</span>
-    <small>Google Blog, beginner tips</small>
+    <small><a href="https://support.google.com/notebooklm/answer/16215270?co=GENIE.Platform%3DDesktop&hl=en">NotebookLM Help: web/Drive sources</a></small>
   </div>
   <div>
     <b>🎧 사용자 반응</b>
-    <span>Audio Overviews는 사용량이 빠르게 늘었고, 80개 이상 언어 지원 후 생성량이 2주 만에 두 배가 되었다고 Google은 설명합니다.</span>
-    <small>Google Blog, 2025-07</small>
+    <span>Audio Overviews는 업로드한 소스의 핵심 주제를 AI hosts가 토론형 요약으로 풀어주며, 80개 이상 언어 생성을 지원합니다.</span>
+    <small><a href="https://support.google.com/notebooklm/answer/16212820?hl=en">NotebookLM Help: Audio Overview</a></small>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
+
+# NotebookLM 실습 3: 사내 규정 소스 추가
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/notebooklm-source-dialog.png" alt="NotebookLM copied text source dialog walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-document /> 복사 텍스트 소스</h3>
+    <CopyBlock class="compact" text-key="notebookPolicySource" />
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
+
+# NotebookLM 실습 3 결과 확인
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/notebooklm-summary.png" alt="NotebookLM source summary walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-search-locate /> 검증 질문</h3>
+    <CopyBlock class="compact" text-key="notebookQuestions" />
+    <p>완료 증거: 소스 1개가 선택되고, 요약이 원문 규정에 근거하는지 확인합니다.</p>
   </div>
 </div>
 
@@ -542,11 +776,28 @@ layout: section
 
 ---
 
+<div class="kicker">Day 1 > Gemini와 Workspace > Sheets 실습</div>
+
+# Sheets 실습 2: 분석 테이블 만들기
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/sheets-blank.png" alt="Google Sheets blank sheet walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-table-split /> A1에 붙여넣을 TSV</h3>
+    <CopyBlock class="compact" text-key="sheetRequestTsv" />
+    <p>A1을 선택한 뒤 붙여넣고, 빈 열에는 Gemini 처리 결과를 채웁니다.</p>
+  </div>
+</div>
+
+---
+
 <div class="kicker">Day 1 > Gemini와 Workspace > Docs와 Slides</div>
 
 # 보고서 초안 구조화
 
-<div class="component-grid">
+<div class="component-grid plain-boxes">
   <div>
     <b>🧱 목차 생성</b>
     <span>목적, 현황, 이슈, 의사결정 요청으로 보고 구조를 고정한다.</span>
@@ -571,7 +822,7 @@ layout: section
 
 # Part 1 실습 안내
 
-<div class="practice-brief">
+<div class="practice-brief plain-boxes">
   <div><em>목표</em><b>Gemini로 업무 요청 데이터를 읽고 처리 기준을 만든다.</b></div>
   <div><em>시작 화면</em><b>Gemini · NotebookLM · Google Sheets</b></div>
   <div><em>수행</em><b>프롬프트 3종 작성 → 시트 분류/요약 → NotebookLM 질문 목록 정리</b></div>
@@ -584,7 +835,7 @@ layout: section
 
 # Part 1 체크리스트
 
-<div class="checklist-board">
+<div class="checklist-board plain-boxes">
   <div>
     <span>✅</span>
     <b>부서 맞춤형 Gem 세트</b>
@@ -623,6 +874,23 @@ layout: section
   <div><em>시작 화면</em><b>Google Form · Sheet · Apps Script 편집기</b></div>
   <div><em>수행</em><b>트리거 설정 → Gmail 답신 → API 수집 → Drive/Calendar 연동 → 실패 알림</b></div>
   <div><em>완료 증거</em><b>메일 발송 로그, 시트 기록, Slack/Webhook 실패 알림 테스트</b></div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > 실습 준비</div>
+
+# Apps Script 실습 4: 권한 없는 로그 실행
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/appscript-run-log.png" alt="Apps Script run log walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-script /> 붙여넣을 코드</h3>
+    <CopyBlock class="compact" text-key="appScriptLogSample" />
+    <p>권한 승인이 필요한 Gmail/Drive 작업 전에 실행 로그와 JSON 출력 구조부터 확인합니다.</p>
+  </div>
 </div>
 
 ---
@@ -688,13 +956,15 @@ function onFormSubmit(e) {
   const requester = row[1]
   const requestType = row[3]
 
-  GmailApp.sendEmail(
+  GmailApp.createDraft(
     requester,
     `[접수 완료] ${requestType} 요청`,
     '요청이 접수되었습니다. 담당자 확인 후 회신드리겠습니다.'
   )
 }
 </CopyBlock>
+
+<div class="source-line">실습 기본값은 발송이 아니라 Gmail 초안 생성입니다. 실제 발송이 필요한 경우 `createDraft`를 `sendEmail`로 바꿉니다.</div>
 
 ---
 
@@ -803,28 +1073,93 @@ function fetchExchangeRate() {
 layout: section
 ---
 
-<div class="kicker">Day 1 > Part 3 > Looker Studio</div>
+<div class="kicker">Day 1 > Part 3 > Data Studio</div>
 
-# Looker Studio: 의사결정용 실시간 KPI 대시보드
+# Data Studio: 의사결정용 실시간 KPI 대시보드
 
 <p class="lead">14:30–16:00 · 자동화된 Sheet 데이터를 경영진 보고용 실시간 KPI 대시보드와 공유 URL로 바꾼다.</p>
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 실습 안내</div>
+<div class="kicker">Day 1 > Data Studio > 실습 안내</div>
 
-# Looker Studio 실습 안내
+# Data Studio 실습 안내
 
 <div class="practice-brief">
   <div><em>목표</em><b>자동 갱신되는 Sheet 데이터를 의사결정 화면으로 바꾼다.</b></div>
-  <div><em>시작 화면</em><b>Google Sheets · Looker Studio</b></div>
+  <div><em>시작 화면</em><b>Google Sheets · Data Studio</b></div>
   <div><em>수행</em><b>실시간 연결 → 혼합 소스 구성 → 스코어카드 → 트렌드 → 필터 → 공유 URL</b></div>
   <div><em>완료 증거</em><b>KPI 대시보드 URL, 자동 갱신 기준, 공유 권한 설정</b></div>
 </div>
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 대시보드 목표</div>
+<div class="kicker">Day 1 > Data Studio > 계정 설정</div>
+
+# Data Studio 계정 1회 설정
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/datastudio-setup.png" alt="Data Studio account setup boundary walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-checkmark-outline /> 설정 완료 계정은 홈 진입 확인</h3>
+    <div class="mini-checklist">
+      <span>처음 사용 시: 국가·회사 개요·약관을 1회 입력</span>
+      <span>이미 설정된 계정: 홈 화면으로 바로 진입</span>
+      <span>환경설정과 계정이 맞는지 확인</span>
+      <span>보고서 만들기 카드가 보이면 다음 단계 진행</span>
+    </div>
+    <p>실습 캡처는 이미 설정된 Workspace 계정에서 직접 진입해 확인한 화면입니다.</p>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Data Studio > 보고서 만들기</div>
+
+# Data Studio 실습 5: 보고서 만들기 진입
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/datastudio-home.png" alt="Data Studio home walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><logos-google-data-studio /> 진행 순서</h3>
+    <div class="mini-checklist">
+      <span>왼쪽 만들기 또는 보고서 만들기 클릭</span>
+      <span>처음 사용하는 계정은 1회 설정을 완료</span>
+      <span>데이터 소스는 Google Sheets 선택</span>
+      <span>실습 Sheet의 첫 행을 필드명으로 사용</span>
+    </div>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Data Studio > 데이터 연결</div>
+
+# Data Studio 실습 5: Google Sheets 연결
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/datastudio-report.png" alt="Data Studio Google Sheets connector walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-dashboard /> 새 보고서 데이터 추가</h3>
+    <div class="mini-checklist">
+      <span>새 보고서가 생성되었는가</span>
+      <span>보고서에 데이터 추가 패널이 열렸는가</span>
+      <span>Google Sheets 커넥터를 선택했는가</span>
+      <span>이후 실습 Sheet를 데이터 소스로 연결한다</span>
+    </div>
+    <p>무료 개인 계정에서도 계정 설정 후 같은 커넥터 선택 화면까지 진입합니다.</p>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Data Studio > 대시보드 목표</div>
 
 # 대시보드 목표: 빠른 판단 화면
 
@@ -849,32 +1184,32 @@ layout: section
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 데이터 흐름</div>
+<div class="kicker">Day 1 > Data Studio > 데이터 흐름</div>
 
 # Sheets 원천 데이터 연결
 
 ```mermaid
 flowchart LR
   A[Forms / Gmail / API] --> B[Google Sheets]
-  B --> C[Looker Studio]
+  B --> C[Data Studio]
   C --> D[Scorecard]
   C --> E[Trend Line]
   C --> F[Drilldown Filter]
   G[Apps Script Trigger] --> B
 ```
 
-<div class="bottom-line">핵심은 Looker Studio 화면보다 그 앞단의 Sheet 구조와 자동 갱신 주기입니다.</div>
+<div class="bottom-line">핵심은 Data Studio 화면보다 그 앞단의 Sheet 구조와 자동 갱신 주기입니다.</div>
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 혼합 소스</div>
+<div class="kicker">Day 1 > Data Studio > 혼합 소스</div>
 
 # 혼합 소스와 자동 갱신
 
 <div class="looker-source-grid">
   <div>
     <b>🔗 실시간 연결</b>
-    <span>Forms, Gmail, 외부 API 결과를 Sheets에 쌓고 Looker Studio가 같은 표를 읽는다.</span>
+    <span>Forms, Gmail, 외부 API 결과를 Sheets에 쌓고 Data Studio가 같은 표를 읽는다.</span>
   </div>
   <div>
     <b>🧩 혼합 소스</b>
@@ -892,7 +1227,7 @@ flowchart LR
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 보고 레이아웃</div>
+<div class="kicker">Day 1 > Data Studio > 보고 레이아웃</div>
 
 # 보고 레이아웃: 3층 구조
 
@@ -913,7 +1248,7 @@ flowchart LR
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 자동 갱신</div>
+<div class="kicker">Day 1 > Data Studio > 자동 갱신</div>
 
 # 자동 갱신 대시보드
 
@@ -930,14 +1265,14 @@ flowchart LR
   </div>
   <div class="flow-box">
     <div class="flow-icon">C</div>
-    <h3>Looker Studio</h3>
+    <h3>Data Studio</h3>
     <p>최신 데이터를 반영한 공유 URL을 제공한다.</p>
   </div>
 </div>
 
 ---
 
-<div class="kicker">Day 1 > Looker Studio > 실습 산출물</div>
+<div class="kicker">Day 1 > Data Studio > 실습 산출물</div>
 
 # Part 3 실습 완료 기준
 
@@ -1117,6 +1452,127 @@ const agentPlan = {
     <span>Cloud Run URL, Demo Day, 확장 로드맵</span>
   </div>
 </div>
+
+
+---
+layout: section
+---
+
+<div class="kicker">Day 2–3 > Inline Agent Lab > 실습 확장</div>
+
+# Day 2–3 실습 확장: Inline Agent Lab
+
+<p class="lead">curriculm-seah.pdf의 Day 2 “Gemini API + Antigravity 기반 AI Agent 개발”과 Day 3 “완성·배포·Demo Day”를 터미널에서 검증 가능한 작은 Agent 실습으로 연결한다.</p>
+
+---
+
+<div class="kicker">Day 2 > Agent 개발 > 도구 역할</div>
+
+# Antigravity · Codex · Claude Code 역할 분담
+
+<div class="tool-evidence-grid">
+  <div>
+    <simple-icons-googlegemini />
+    <b>Antigravity</b>
+    <span>IDE/Agent UI에서 Plan → Execute → Verify 흐름과 Artifact 기반 디버깅을 진행한다. 데스크톱 앱은 실제 실행 환경에서 확인했고, CLI 문서는 공식 문서를 기준으로 업데이트한다.</span>
+    <small><a href="https://antigravity.google/docs/cli-getting-started">Antigravity CLI getting started</a> · <a href="https://antigravity.google/docs/cli-using?authuser=1">CLI using/config</a></small>
+  </div>
+  <div>
+    <simple-icons-openai />
+    <b>Codex CLI</b>
+    <span>로컬 폴더를 읽고 코드 변경·명령 실행·검토를 수행하는 터미널 Agent다. 실습에서는 help/version 확인과 작은 검증 루프를 중심으로 안전하게 사용한다.</span>
+    <small><a href="https://developers.openai.com/codex/cli">OpenAI Codex CLI</a> · <a href="https://developers.openai.com/codex/cloud">Codex web/cloud</a></small>
+  </div>
+  <div>
+    <simple-icons-claude />
+    <b>Claude Code</b>
+    <span>터미널 대화, 파이프 입력, 백그라운드 세션, MCP/플러그인 구성을 지원한다. 비용·권한 모드를 먼저 정하고 작은 범위에서 실행한다.</span>
+    <small><a href="https://code.claude.com/docs/en/cli-reference">Claude Code CLI reference</a></small>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 2 > Inline Agent Lab > 사용량 가드</div>
+
+# 실습 6: 사용량 가드를 먼저 실행한다
+
+<div class="inline-lab-grid">
+  <div class="lab-card emphasis">
+    <h3><carbon-meter-alt /> 왜 먼저?</h3>
+    <p>Agent 개발은 반복 실행이 많기 때문에 토큰 추정치, 예산 한도, 승인 지점을 먼저 세워야 Day 3 배포 전 폭주를 막을 수 있다.</p>
+    <ul>
+      <li>로컬 검증 결과: repeat=5, 추정 85 tokens, 예산 $0.02 이하 PASS</li>
+      <li>실패 기준: maxTokens 또는 maxUsd 초과 시 즉시 중단</li>
+    </ul>
+  </div>
+  <CopyBlock class="compact" textKey="inlineUsageCommands" />
+</div>
+
+<div class="source-line">검증: <code>demos/inline-agent-lab/usage-guard.mjs</code> 직접 실행 · 참고: <a href="https://docs.cloud.google.com/run/docs/deploying-source-code">Cloud Run source deployment</a></div>
+
+---
+
+<div class="kicker">Day 2 > Inline Agent Lab > PRD에서 프로토타입</div>
+
+# 실습 7: PRD → Agent 프로토타입 → Verify
+
+<div class="inline-lab-grid two-col">
+  <div class="lab-card">
+    <h3><carbon-flow /> Plan → Execute → Verify</h3>
+    <ol>
+      <li><b>Plan</b>: REQ-001~003 요청을 부서 문제정의와 매핑</li>
+      <li><b>Execute</b>: 키워드 근거로 정산·인사·법무 분류</li>
+      <li><b>Verify</b>: 보고서, 승인 지점, 사용량 ledger를 자동 점검</li>
+    </ol>
+  </div>
+  <div class="usage-proof">
+    <b>실행 검증</b>
+    <span><code>node verify.mjs</code> 결과: <code>{ ok: true, checked: 7, totalTokens: 346 }</code></span>
+    <span>산출물: <code>artifacts/agent-report.md</code>, <code>artifacts/usage-ledger.json</code></span>
+  </div>
+</div>
+
+<CopyBlock class="compact" textKey="inlineAgentCommands" />
+
+---
+
+<div class="kicker">Day 2 > 프로젝트 아이디어 > 부서별 Agent</div>
+
+# 프로젝트 아이디어 보드
+
+<div class="project-idea-grid">
+  <div>
+    <b>HR · 총무 RAG Q&A</b>
+    <span>규정집·FAQ·양식 소스를 근거로 직원 질문에 답하고, 출처와 담당자 승인 지점을 표시한다.</span>
+    <small>curriculum Day 2 예시 · <a href="https://support.google.com/notebooklm/answer/16215270?co=GENIE.Platform%3DDesktop&hl=en">NotebookLM source grounding</a></small>
+  </div>
+  <div>
+    <b>경영관리 월간 보고 통합</b>
+    <span>해외법인 보고 데이터를 정합성 검증 후 요약하고, 대시보드/보고서 초안을 만든다.</span>
+    <small>curriculum Day 2 예시 · <a href="https://workspace.google.com/intl/en_ph/resources/spreadsheet-ai/">Gemini in Sheets</a></small>
+  </div>
+  <div>
+    <b>구매·법무 계약 검토</b>
+    <span>견적서와 계약 조항을 추출해 위험 키워드, 누락 조항, 확인 질문을 만든다.</span>
+    <small>curriculum Day 2 예시 · <a href="https://developers.openai.com/codex/cli">Codex CLI local review</a></small>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 3 > 완성·배포 > Demo Day 게이트</div>
+
+# Day 3 검증·배포·Demo Day 체크포인트
+
+<div class="demo-gate-grid">
+  <div><em>01</em><b>사용량</b><span>usage-ledger와 예산 한도 PASS</span></div>
+  <div><em>02</em><b>근거</b><span>답변마다 소스·키워드·로그 제시</span></div>
+  <div><em>03</em><b>승인</b><span>민감 업무는 사람 승인 후 발송</span></div>
+  <div><em>04</em><b>배포</b><span>Cloud Run URL 또는 로컬 데모 URL 제출</span></div>
+</div>
+
+<div class="source-line">배포 참고: <a href="https://docs.cloud.google.com/run/docs/deploying-source-code">Google Cloud Run: deploy services from source code</a></div>
 
 ---
 

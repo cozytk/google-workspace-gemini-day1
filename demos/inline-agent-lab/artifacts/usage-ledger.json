@@ -1,0 +1,49 @@
+{
+  "usage": {
+    "inputTokens": 182,
+    "outputTokens": 164,
+    "totalTokens": 346,
+    "maxTokens": 2400,
+    "estimatedUsd": 0.000519,
+    "maxUsd": 0.02,
+    "ok": true
+  },
+  "results": [
+    {
+      "id": "REQ-001",
+      "category": "정산",
+      "owner": "경영관리",
+      "risk": "중간",
+      "evidence": [
+        "source=Day1 Sheets 실습 데이터",
+        "keywords=정산/비용/누락/보고"
+      ],
+      "nextQuestion": "대상 법인, 비용 월, 원본 증빙 위치를 확인해 주세요.",
+      "approval": "담당자 검토 후 공유"
+    },
+    {
+      "id": "REQ-002",
+      "category": "인사",
+      "owner": "HR 운영",
+      "risk": "낮음",
+      "evidence": [
+        "source=Day1 Apps Script 실습 데이터",
+        "keywords=입사/온보딩/계정"
+      ],
+      "nextQuestion": "요청 범위와 완료 기준을 확인해 주세요.",
+      "approval": "담당자 검토 후 공유"
+    },
+    {
+      "id": "REQ-003",
+      "category": "계약",
+      "owner": "법무",
+      "risk": "높음",
+      "evidence": [
+        "source=Day1 Agent PRD 후보",
+        "keywords=계약/조항/검토"
+      ],
+      "nextQuestion": "계약 유형, 협력사명, 필수 검토 조항 목록을 확인해 주세요.",
+      "approval": "담당자 승인 후 발송"
+    }
+  ]
+}

@@ -4,3 +4,5 @@ slides-export.pdf
 .slidev
 _export_preview
 _pdf_pages
+.omx/visual-checks/
+.playwright-cli/
