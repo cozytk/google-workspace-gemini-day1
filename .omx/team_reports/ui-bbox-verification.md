@@ -99,3 +99,44 @@ I used a fresh unauthenticated Playwright Chromium context. This verifies servic
 ## Bottom line
 
 The current UI walkthrough assets are adequate for the deck's Day 1 flow, and the bbox pipeline is documented enough to refresh them. The only unsafe part is automatic recapture against a real Google account; treat recapture as an instructor-sandbox operation, not CI, and preserve the local-only `process:walkthroughs` step as the repeatable asset-generation boundary.
+
+---
+
+## Worker-1 Task 2 addendum — safe entry verification and request-intake asset gap
+
+- Date checked: 2026-05-28 KST
+- Scope: added safe public-entry verification and missing request-intake bbox asset plan; no authenticated Google account mutation and no real data.
+
+### Headless public-entry verification
+
+Ran a Playwright smoke check without login or data entry.
+
+| Service | URL checked | Result | Interpretation |
+|---|---|---|---|
+| Gemini app | `https://gemini.google.com/app` | HTTP 200; `Google Gemini`; public/sign-in shell visible. | Safe shell check; prompt capture still needs sandbox login. |
+| NotebookLM | `https://notebooklm.google.com/` | Redirected to Google Accounts sign-in. | Boundary only without login. |
+| Google Forms | `https://forms.google.com/` | Redirected to Google Forms sign-in. | Form-builder capture requires sandbox login. |
+| Sheets create | `https://docs.google.com/spreadsheets/create` | Redirected to Google Sheets sign-in. | Sheet capture requires sandbox login. |
+| Apps Script create | `https://script.google.com/home/projects/create` | Public/logged-out context reached Apps Script developer page. | Editor capture requires sandbox login; docs page is safe fallback. |
+| Data Studio reporting | `https://lookerstudio.google.com/navigation/reporting` | Redirected to `https://datastudio.google.com/overview`; title `Data Studio Overview`. | Public overview safe; report editor capture requires sandbox login. |
+
+### Remaining request-intake asset gap
+
+Current Gemini / NotebookLM / Sheets / Apps Script / Data Studio walkthrough coverage is already usable. The missing synthetic workflow assets are:
+
+1. `public/walkthroughs/forms-request-intake.raw.png` → `forms-request-intake.png`
+2. `public/walkthroughs/forms-response-sheet-link.raw.png` → `forms-response-sheet-link.png`
+3. `public/walkthroughs/gmail-draft-confirmation.raw.png` → `gmail-draft-confirmation.png`
+4. `public/walkthroughs/calendar-event-draft.raw.png` → `calendar-event-draft.png`
+5. `public/walkthroughs/drive-folder-share-dialog.raw.png` → `drive-folder-share-dialog.png`
+6. Optional bridge: `appscript-trigger-onformsubmit.*` and `sheets-form-responses-row.*`
+
+Recommended future files: `scripts/capture-request-intake-bboxes.mjs` and `.omx/reports/request-intake-dom-bboxes.md`.
+
+### Capture guardrails
+
+- Use synthetic `REQ-001~REQ-006` data only.
+- Prefer Gmail draft evidence; never send mail.
+- Do not share real Drive folders or create production Calendar events.
+- Redact account names, bookmarks, real files, and document titles before committing screenshots.
+- Run `pnpm run process:walkthroughs`, `pnpm run build`, and `pnpm run export` after any asset update.

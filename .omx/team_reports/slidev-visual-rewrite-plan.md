@@ -121,3 +121,30 @@ Recommended deck edit order:
 - Existing tracked files `slides.md` and `components/CopyBlock.vue` had uncommitted modifications before this worker’s report work. This task intentionally does not edit them.
 - `download: true` and PDF export are already viable; the remaining work is visual density, not build mechanics.
 - Google UI screenshots can drift by account, locale, and product rollout. Keep the current bbox screenshot discipline when replacing any walkthrough image.
+
+---
+
+## Worker-1 Task 2 addendum — route-sampling QA and rewrite focus
+
+- Date checked: 2026-05-28 KST
+- Scope: sampled current Slidev routes after Task 1/2 report work; no deck files modified.
+
+### Additional visual QA method
+
+- Ran `pnpm exec slidev --port 3031 --log info`.
+- Used headless Playwright against sampled routes `1,2,3,8,13,22,27,33,40,43,51,53,67,71,75`.
+- Checked loaded text, document dimensions, and visible elements extending past the slide frame.
+
+### Additional findings
+
+| Area | Evidence from route sample | Rewrite focus |
+|---|---|---|
+| Gemini walkthrough | Route around slide 22 showed `.walkthrough-grid` extending below viewport. | Split click path and prompt/result into separate slides. |
+| Sheets walkthrough | Route around slide 33 showed `.walkthrough-grid` extending below viewport due to TSV/copy content. | Show 3-row preview; move full TSV to copy artifact/next slide. |
+| Forms setup | Route around slide 40 was readable but field list density will increase once screenshots are added. | Use chips/2-column field table and keep input sample separate. |
+| Data Studio | Routes 51/53 were comparatively stable. | Preserve current pattern; re-check after request-intake assets are added. |
+| Day 2 bridge | Route 71 heading wraps but remained readable. | Keep if earlier orientation is compressed. |
+
+### Worker-1 rewrite principle
+
+For all walkthroughs, enforce: one screenshot + 3-5 click bullets + expected result + fallback. Move long prompt/code/source/TSV text into a separate slide or handout so PDF export remains readable.
