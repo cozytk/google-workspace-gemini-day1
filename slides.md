@@ -225,6 +225,58 @@ download: true
 </div>
 
 ---
+
+<div class="kicker">Day 1 > 실습 운영 > 공통 시나리오</div>
+
+# 오늘의 실습 서사: 공용 요청함 자동화
+
+<p class="sublead compact">이후 모든 도구는 “앱 사용법”이 아니라, 누구나 겪는 고객·내부 요청을 접수하고 처리하는 하나의 흐름으로 연결합니다.</p>
+
+<div class="stage-grid request-story">
+  <div class="stage-card">
+    <span class="stage-num">01</span>
+    <h3><simple-icons-googleforms /> 접수</h3>
+    <p>Form 또는 Gmail로 요청이 들어온다.</p>
+  </div>
+  <div class="stage-card">
+    <span class="stage-num">02</span>
+    <h3><logos-google-gemini /> 분류</h3>
+    <p>Gemini가 유형·긴급도·확인 질문을 만든다.</p>
+  </div>
+  <div class="stage-card">
+    <span class="stage-num">03</span>
+    <h3><logos-google-icon /> 근거</h3>
+    <p>NotebookLM이 규정 소스에서 답변 근거를 찾는다.</p>
+  </div>
+  <div class="stage-card">
+    <span class="stage-num">04</span>
+    <h3><simple-icons-googleappsscript /> 실행</h3>
+    <p>Apps Script가 초안·일정·파일 링크를 준비한다.</p>
+  </div>
+</div>
+
+<div class="evidence-band">완료 모습: 요청 목록 Sheet · Gmail 초안 · Calendar/Drive 후속 조치 · Data Studio 처리 현황 대시보드</div>
+
+---
+
+<div class="kicker">Day 1 > 실습 운영 > 샘플 데이터</div>
+
+# 합성 요청 데이터셋
+
+<p class="sublead compact">실제 회사 데이터 대신 아래 6건의 가상 요청으로 모든 실습을 이어갑니다.</p>
+
+<div class="request-table">
+  <div><b>REQ-001</b><span>IT지원</span><em>VPN 접속 오류 · 오늘 오후 고객 미팅</em></div>
+  <div><b>REQ-002</b><span>구매</span><em>팀 공용 모니터 2대 구매 가능 여부</em></div>
+  <div><b>REQ-003</b><span>인사총무</span><em>은행 제출용 재직증명서 발급 요청</em></div>
+  <div><b>REQ-004</b><span>회계</span><em>거래처 세금계산서 재발행 문의</em></div>
+  <div><b>REQ-005</b><span>일정</span><em>신규 입사자 OT 일정 조율</em></div>
+  <div><b>REQ-006</b><span>Drive</span><em>프로젝트 자료 폴더 공유 요청</em></div>
+</div>
+
+<div class="bottom-line">이 데이터는 Gemini 프롬프트, NotebookLM 규정 확인, Sheets 표, Apps Script 자동화, 대시보드까지 그대로 재사용합니다.</div>
+
+---
 layout: section
 ---
 
@@ -501,13 +553,13 @@ layout: section
   </div>
   <div>
     <b>업무 적용</b>
-    <p>요청 메일을 계약·정산·인사·기타로 분류하고, 담당자와 답장 초안을 표준 형식으로 남긴다.</p>
+    <p>공용 요청을 IT지원·구매·인사총무·회계·고객문의·기타로 분류하고, 담당 후보와 답장 초안을 표준 형식으로 남긴다.</p>
   </div>
 </div>
 
 <CopyBlock>
-[예시 1] 계약서 검토 요청 → 계약 / 긴급도 높음 / 법무 확인 필요
-[예시 2] 정산 누락 문의 → 정산 / 긴급도 중간 / 매입 자료 확인 필요
+[예시 1] VPN 접속 오류 → IT지원 / 긴급도 높음 / 오류 화면 확인 필요
+[예시 2] 모니터 구매 문의 → 구매 / 긴급도 중간 / 수량·예산 확인 필요
 아래 신규 요청도 같은 기준으로 분류하고, 근거와 확인 질문을 함께 작성해 주세요.
 </CopyBlock>
 
@@ -520,42 +572,68 @@ layout: section
 <div class="prompt-formula">
   <div>
     <b>🎭 Role</b>
-    <span>“본사 HR 운영팀의 주간 리포트 검토자”처럼 업무 책임을 지정한다.</span>
+    <span>“회사 공용 요청함의 1차 분류 담당자”처럼 실습 역할을 명확히 지정한다.</span>
   </div>
   <div>
     <b>📎 Context</b>
-    <span>문서, 표, 메일 원문, 제외 조건, 조직 용어를 함께 제공한다.</span>
+    <span>요청ID, 채널, 제목, 본문, 희망기한, 처리 제외 조건을 함께 제공한다.</span>
   </div>
   <div>
     <b>✅ Check</b>
-    <span>불확실한 내용, 근거 셀, 재확인 질문을 결과에 포함시킨다.</span>
+    <span>근거, 확인 질문, 발송 전 사람 승인 필요 여부를 결과에 포함시킨다.</span>
   </div>
 </div>
 
 <div class="spacer-sm"></div>
 
 <CopyBlock>
-당신은 본사 경영관리팀의 월간 KPI 리포트 검토자입니다.
-아래 시트 데이터를 기준으로 이상치, 원인 가설, 추가 확인 질문을 분리해 주세요.
-근거가 부족한 내용은 "확인 필요"로 표시하고, 추정 문장을 확정처럼 쓰지 마세요.
+당신은 회사 공용 요청함의 1차 분류 담당자입니다.
+아래 요청을 업무 유형, 긴급도, 담당 후보, 확인 질문으로 나누어 주세요.
+근거가 부족한 내용은 "확인 필요"로 표시하고, 처리 확정처럼 쓰지 마세요.
 </CopyBlock>
 
 ---
 
 <div class="kicker">Day 1 > Gemini와 Workspace > Gemini 실습</div>
 
-# Gemini 실습 1: 업무 요청 분류
+# Gemini 실습 1-1: 입력창까지 이동
 
 <div class="walkthrough-grid">
   <div class="shot-card wide">
     <PublicImage src="walkthroughs/gemini-home.png" alt="Gemini prompt input walkthrough" />
   </div>
   <div class="lab-side">
-    <h3><logos-google-gemini /> 붙여넣을 프롬프트</h3>
-    <CopyBlock class="compact" text-key="geminiRequestPrompt" />
-    <p>완료 증거: Flash 모드에서 표 형태 응답이 생성되었는지 확인합니다.</p>
+    <h3><logos-google-gemini /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>브라우저 주소창에 <b>gemini.google.com</b> 입력</span>
+      <span>로그인이 필요하면 교육용 계정으로 로그인</span>
+      <span>하단 <b>Gemini 프롬프트 입력</b> 영역 클릭</span>
+      <span>모델 선택은 기본 <b>Flash</b> 상태로 둠</span>
+    </div>
+    <p>여기서는 아직 전송하지 않습니다. 다음 장에서 프롬프트를 복사해 한 번에 붙여넣습니다.</p>
   </div>
 </div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > Gemini 실습</div>
+
+# Gemini 실습 1-2: 요청 분류 프롬프트 실행
+
+<div class="copy-focus">
+  <div>
+    <h3><carbon-play /> 실행 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>아래 프롬프트를 <b>복사</b></span>
+      <span>Gemini 입력창에 붙여넣기</span>
+      <span>전송 버튼 클릭</span>
+      <span>표에 <b>분류·긴급도·담당 후보·근거·확인 질문</b>이 모두 있는지 확인</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="geminiRequestPrompt" />
+</div>
+
+<div class="bottom-line">완료 증거: REQ-001이 IT지원/긴급 요청으로 분류되고, 확정 답변 대신 추가 확인 질문이 남습니다.</div>
 
 ---
 
@@ -609,9 +687,9 @@ layout: section
   <div class="lab-side">
     <h3><carbon-checkmark-outline /> 확인할 항목</h3>
     <div class="mini-checklist">
-      <span>분류가 정산으로 나왔는가</span>
-      <span>긴급도와 근거가 분리되어 있는가</span>
-      <span>확인 질문이 바로 업무에 쓸 수 있는가</span>
+      <span>REQ-001이 IT지원 또는 장애 요청으로 분류되는가</span>
+      <span>긴급도와 판단 근거가 분리되어 있는가</span>
+      <span>사용 기기·오류 화면 같은 확인 질문이 남는가</span>
       <span>답장 초안에 과도한 확정 표현이 없는가</span>
     </div>
   </div>
@@ -698,15 +776,21 @@ layout: section
 
 <div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
 
-# NotebookLM 실습 3: 사내 규정 소스 추가
+# NotebookLM 실습 3-1: 소스 추가 창 열기
 
 <div class="walkthrough-grid">
   <div class="shot-card wide">
     <PublicImage src="walkthroughs/notebooklm-source-dialog.png" alt="NotebookLM copied text source dialog walkthrough" />
   </div>
   <div class="lab-side">
-    <h3><carbon-document /> 복사 텍스트 소스</h3>
-    <CopyBlock class="compact" text-key="notebookPolicySource" />
+    <h3><carbon-document /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span><b>notebooklm.google.com</b> 접속</span>
+      <span><b>새 노트북</b> 또는 <b>Create new</b> 클릭</span>
+      <span>소스 추가 창에서 <b>Copied text</b> 선택</span>
+      <span>제목을 <b>요청 처리 규정 샘플</b>로 입력</span>
+    </div>
+    <p>NotebookLM은 넣은 소스에 근거해 답합니다. 아직 답을 묻지 말고 소스부터 고정합니다.</p>
   </div>
 </div>
 
@@ -714,17 +798,60 @@ layout: section
 
 <div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
 
-# NotebookLM 실습 3 결과 확인
+# NotebookLM 실습 3-2: 규정 샘플 붙여넣기
+
+<div class="copy-focus">
+  <div>
+    <h3><carbon-paste /> 붙여넣기 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>아래 규정 샘플을 <b>복사</b></span>
+      <span>Copied text 본문 영역에 붙여넣기</span>
+      <span><b>Insert</b> 클릭</span>
+      <span>왼쪽 Sources에 소스 1개가 생겼는지 확인</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="notebookPolicySource" />
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
+
+# NotebookLM 실습 3-3: 소스 요약 확인
 
 <div class="walkthrough-grid">
   <div class="shot-card wide">
     <PublicImage src="walkthroughs/notebooklm-summary.png" alt="NotebookLM source summary walkthrough" />
   </div>
   <div class="lab-side">
-    <h3><carbon-search-locate /> 검증 질문</h3>
-    <CopyBlock class="compact" text-key="notebookQuestions" />
-    <p>완료 증거: 소스 1개가 선택되고, 요약이 원문 규정에 근거하는지 확인합니다.</p>
+    <h3><carbon-search-locate /> 확인할 위치</h3>
+    <div class="mini-checklist numbered">
+      <span>왼쪽 Sources에서 방금 넣은 소스가 체크되어 있는지 확인</span>
+      <span>가운데 Summary가 규정 항목을 요약하는지 확인</span>
+      <span>Chat 입력창 위치를 확인</span>
+      <span>다음 장에서 질문을 붙여넣음</span>
+    </div>
+    <p>완료 증거: 답변을 묻기 전에 “어떤 소스를 근거로 답할지”가 화면에 보입니다.</p>
   </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > NotebookLM 실습</div>
+
+# NotebookLM 실습 3-4: 근거 질문하기
+
+<div class="copy-focus">
+  <div>
+    <h3><carbon-chat /> 질문 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>Chat 입력창 클릭</span>
+      <span>아래 질문 3개 붙여넣기</span>
+      <span>응답 안의 citation 또는 근거 표시 확인</span>
+      <span>정책에 없는 내용은 “확인 필요”로 표시되는지 확인</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="notebookQuestions" />
 </div>
 
 ---
@@ -771,24 +898,50 @@ layout: section
 </div>
 
 <CopyBlock class="compact">
-=GEMINI("이 요청을 계약/정산/인사/기타로 분류하고, 담당자에게 보낼 답장 초안을 작성해줘", A2:D2)
+=AI("이 요청을 IT지원/구매/인사총무/회계/고객문의/기타로 분류하고, 담당자 후보와 답장 초안을 작성해줘", A2:F2)
 </CopyBlock>
+
+<div class="source-line">Google Docs Editors Help는 Sheets AI 함수에서 <code>=AI()</code> 또는 <code>=GEMINI()</code>를 사용할 수 있다고 안내합니다. 단, eligible Workspace/Google AI plan과 관리자 설정에 따라 보이지 않을 수 있습니다.</div>
 
 ---
 
 <div class="kicker">Day 1 > Gemini와 Workspace > Sheets 실습</div>
 
-# Sheets 실습 2: 분석 테이블 만들기
+# Sheets 실습 2-1: 빈 Sheet 열기
 
 <div class="walkthrough-grid">
   <div class="shot-card wide">
     <PublicImage src="walkthroughs/sheets-blank.png" alt="Google Sheets blank sheet walkthrough" />
   </div>
   <div class="lab-side">
-    <h3><carbon-table-split /> A1에 붙여넣을 TSV</h3>
-    <CopyBlock class="compact" text-key="sheetRequestTsv" />
-    <p>A1을 선택한 뒤 붙여넣고, 빈 열에는 Gemini 처리 결과를 채웁니다.</p>
+    <h3><carbon-table-split /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span><b>sheets.new</b> 접속</span>
+      <span>새 스프레드시트가 열리면 <b>A1</b> 셀 클릭</span>
+      <span>행/열이 비어 있는지 확인</span>
+      <span>다음 장의 TSV를 A1에 붙여넣음</span>
+    </div>
+    <p>TSV는 탭으로 구분된 표 텍스트입니다. A1에 붙여넣으면 여러 열로 자동 분리됩니다.</p>
   </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Gemini와 Workspace > Sheets 실습</div>
+
+# Sheets 실습 2-2: 요청 데이터 붙여넣기
+
+<div class="copy-focus wide-copy">
+  <div>
+    <h3><carbon-paste /> 붙여넣기 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>아래 TSV 전체 복사</span>
+      <span>Sheet의 <b>A1</b>에 붙여넣기</span>
+      <span>REQ-001~REQ-006까지 6행이 보이는지 확인</span>
+      <span>분류·긴급도·담당후보 열은 Gemini 결과로 채움</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="sheetRequestTsv" />
 </div>
 
 ---
@@ -844,7 +997,7 @@ layout: section
   <div>
     <span>✅</span>
     <b>Sheets AI 분석 시트</b>
-    <p>=GEMINI() 함수로 업무 요청을 분류·요약하고 답장 초안을 만든다.</p>
+    <p>Sheets AI 함수로 요청을 분류·요약하고 답장 초안을 만든다.</p>
   </div>
   <div>
     <span>✅</span>
@@ -878,17 +1031,121 @@ layout: section
 
 ---
 
+<div class="kicker">Day 1 > Apps Script > 서비스 소개</div>
+
+# 요청 자동화에 쓰는 Workspace 서비스
+
+<div class="component-grid service-intro">
+  <div>
+    <simple-icons-googleforms />
+    <b>Google Forms</b>
+    <span>반복되는 신청·문의·요청을 같은 질문 구조로 받는 접수 화면입니다.</span>
+  </div>
+  <div>
+    <logos-google-gmail />
+    <b>Gmail</b>
+    <span>요청자에게 접수 확인, 추가 질문, 처리 결과를 보내는 커뮤니케이션 채널입니다.</span>
+  </div>
+  <div>
+    <logos-google-calendar />
+    <b>Calendar</b>
+    <span>검토 마감, 미팅, 후속 조치 시간을 팀 일정으로 남기는 도구입니다.</span>
+  </div>
+  <div>
+    <logos-google-drive />
+    <b>Drive</b>
+    <span>요청별 증빙 파일과 산출물을 폴더·링크·권한으로 관리하는 저장소입니다.</span>
+  </div>
+</div>
+
+<div class="source-line">안전 경계: 실습은 Gmail <code>createDraft</code>와 로그 실행을 기본으로 하며, 실제 발송·외부 공유는 강사 안내 후 진행합니다.</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > Forms 준비</div>
+
+# Forms 실습: 요청 접수 화면 만들기
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/request-intake-forms.png" alt="Synthetic Google Forms request-intake walkthrough with bbox overlays" />
+  </div>
+  <div class="lab-side">
+    <h3><simple-icons-googleforms /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span><b>forms.new</b> 접속</span>
+      <span>제목을 <b>공용 요청 접수</b>로 입력</span>
+      <span><b>+</b> 버튼으로 아래 6개 질문 추가</span>
+      <span><b>응답</b> 탭 → 초록 Sheets 아이콘 클릭</span>
+    </div>
+    <p>완료 증거: 응답이 쌓일 Sheet가 생성되고, 이후 Apps Script가 그 Sheet를 읽습니다.</p>
+  </div>
+</div>
+
+<div class="field-chip-grid compact-fields">
+  <span>요청자 이메일</span><span>요청 제목</span><span>요청 유형</span>
+  <span>요청 내용</span><span>희망 처리 기한</span><span>첨부/Drive 링크</span>
+</div>
+
+---
+
 <div class="kicker">Day 1 > Apps Script > 실습 준비</div>
 
-# Apps Script 실습 4: 권한 없는 로그 실행
+# Apps Script 실습 4-1: 편집기 열기
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/appscript-editor.png" alt="Apps Script editor walkthrough" />
+  </div>
+  <div class="lab-side">
+    <h3><carbon-script /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>요청 Sheet 메뉴에서 <b>Extensions</b> 클릭</span>
+      <span><b>Apps Script</b> 클릭</span>
+      <span><b>Code.gs</b> 파일이 열린 것을 확인</span>
+      <span>기존 샘플 코드가 있으면 전체 선택 후 삭제</span>
+    </div>
+    <p>먼저 권한이 필요 없는 로그 함수로 편집기·실행·로그 위치를 익힙니다.</p>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > 실습 준비</div>
+
+# Apps Script 실습 4-2: 로그 코드 붙여넣기
+
+<div class="copy-focus">
+  <div>
+    <h3><carbon-paste /> 붙여넣기 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>아래 코드를 복사</span>
+      <span><b>Code.gs</b>에 붙여넣기</span>
+      <span><b>Save</b> 또는 <kbd>⌘S</kbd> 저장</span>
+      <span>함수 드롭다운에 <b>classifyRequestSample</b>가 보이는지 확인</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="appScriptLogSample" />
+</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > 실습 준비</div>
+
+# Apps Script 실습 4-3: Run과 로그 확인
 
 <div class="walkthrough-grid">
   <div class="shot-card wide">
     <PublicImage src="walkthroughs/appscript-run-log.png" alt="Apps Script run log walkthrough" />
   </div>
   <div class="lab-side">
-    <h3><carbon-script /> 붙여넣을 코드</h3>
-    <CopyBlock class="compact" text-key="appScriptLogSample" />
+    <h3><carbon-checkmark-outline /> 확인 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>함수 드롭다운에서 <b>classifyRequestSample</b> 선택</span>
+      <span><b>Run</b> 클릭</span>
+      <span>하단 Execution log 열기</span>
+      <span>REQ-001의 category·urgency·evidence가 JSON으로 보이는지 확인</span>
+    </div>
     <p>권한 승인이 필요한 Gmail/Drive 작업 전에 실행 로그와 JSON 출력 구조부터 확인합니다.</p>
   </div>
 </div>
@@ -940,31 +1197,109 @@ layout: section
 
 <div class="kicker">Day 1 > Apps Script > 실습 1</div>
 
-# Form → Sheet → Gmail 자동 답신 파이프라인
+# Form → Sheet → Gmail 초안 흐름
 
 <div class="pipeline-row">
   <div><logos-google-gsuite /><b>Form 제출</b><span>요청 접수</span></div>
   <div><carbon-arrow-right /></div>
   <div><logos-google-drive /><b>Sheet 기록</b><span>담당/유형 분류</span></div>
   <div><carbon-arrow-right /></div>
-  <div><logos-google-gmail /><b>Gmail 발송</b><span>확인 메일 자동 회신</span></div>
+  <div><logos-google-gmail /><b>Gmail 초안</b><span>확인 메일 작성</span></div>
 </div>
 
-<CopyBlock>
-function onFormSubmit(e) {
-  const row = e.values
-  const requester = row[1]
-  const requestType = row[3]
+<div class="practice-brief plain-boxes">
+  <div><em>왜 초안인가</em><b>실습 안전을 위해 실제 발송하지 않음</b></div>
+  <div><em>확인 위치</em><b>Gmail Drafts에서 제목·본문 확인</b></div>
+  <div><em>확장</em><b>승인 후에만 sendEmail로 변경</b></div>
+  <div><em>기록</em><b>Sheet 행 번호와 draft 생성 시간을 로그로 남김</b></div>
+</div>
 
-  GmailApp.createDraft(
-    requester,
-    `[접수 완료] ${requestType} 요청`,
-    '요청이 접수되었습니다. 담당자 확인 후 회신드리겠습니다.'
-  )
-}
-</CopyBlock>
+---
 
-<div class="source-line">실습 기본값은 발송이 아니라 Gmail 초안 생성입니다. 실제 발송이 필요한 경우 `createDraft`를 `sendEmail`로 바꿉니다.</div>
+<div class="kicker">Day 1 > Apps Script > 실습 1</div>
+
+# Gmail 초안 생성 코드 붙여넣기
+
+<div class="copy-focus">
+  <div>
+    <h3><logos-google-gmail /> 실행 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>Apps Script 편집기에서 새 함수 붙여넣기</span>
+      <span>실습 중에는 <b>createDraft</b>만 사용</span>
+      <span>Run 후 권한 승인 화면이 나오면 강사 안내에 따라 진행</span>
+      <span>Gmail Drafts에서 실제 발송 전 내용을 검토</span>
+    </div>
+  </div>
+  <CopyBlock class="compact" text-key="appScriptDraftPipeline" />
+</div>
+
+<div class="source-line">실습 기본값은 발송이 아니라 Gmail 초안 생성입니다. 실제 발송이 필요한 경우 <code>createDraft</code>를 <code>sendEmail</code>로 바꿉니다.</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > 실습 1</div>
+
+# Gmail Drafts에서 초안 확인
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/request-intake-gmail-draft.png" alt="Synthetic Gmail draft walkthrough with bbox overlays" />
+  </div>
+  <div class="lab-side">
+    <h3><logos-google-gmail /> 확인 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>Gmail 왼쪽 메뉴에서 <b>Drafts/임시보관함</b> 클릭</span>
+      <span>제목이 <b>[접수 완료]</b>로 시작하는 초안 열기</span>
+      <span>수신자·제목·본문이 요청 행과 맞는지 확인</span>
+      <span><b>Send</b>는 누르지 않고 창을 닫기</span>
+    </div>
+    <p>실습 목표는 자동 발송이 아니라 사람이 검토할 수 있는 초안을 만드는 것입니다.</p>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > Calendar·Drive 후속 조치</div>
+
+# Calendar: 후속 미팅 초안 만들기
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/request-intake-calendar.png" alt="Synthetic Calendar event walkthrough with bbox overlays" />
+  </div>
+  <div class="lab-side">
+    <h3><logos-google-calendar /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>Calendar에서 <b>Create</b> 클릭</span>
+      <span>제목에 <b>REQ-005 신규 입사자 OT</b> 입력</span>
+      <span>일시와 참석자를 요청 내용대로 채움</span>
+      <span>교육용 계정에서만 Save, 일반 실습은 초안 확인 후 닫기</span>
+    </div>
+    <p>요청 처리 자동화에서 Calendar는 “후속 조치 시간”을 놓치지 않게 만드는 장치입니다.</p>
+  </div>
+</div>
+
+---
+
+<div class="kicker">Day 1 > Apps Script > Calendar·Drive 후속 조치</div>
+
+# Drive: 요청별 폴더와 공유 경계 확인
+
+<div class="walkthrough-grid">
+  <div class="shot-card wide">
+    <PublicImage src="walkthroughs/request-intake-drive.png" alt="Synthetic Drive folder sharing walkthrough with bbox overlays" />
+  </div>
+  <div class="lab-side">
+    <h3><logos-google-drive /> 버튼 순서</h3>
+    <div class="mini-checklist numbered">
+      <span>Drive에서 <b>New > Folder</b> 클릭</span>
+      <span>폴더명을 <b>REQ-006 프로젝트 자료</b>로 입력</span>
+      <span><b>Share</b> 클릭 후 공유 대상과 권한 확인</span>
+      <span>외부 공유·링크 복사는 강사 안내 없이는 실행하지 않기</span>
+    </div>
+    <p>Drive 자동화는 편리하지만 권한 사고가 날 수 있으므로 링크 생성 전 승인 지점을 둡니다.</p>
+  </div>
+</div>
 
 ---
 

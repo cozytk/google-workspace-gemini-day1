@@ -4915,3 +4915,248 @@ body,
 .checklist-board.plain-boxes > div {
   border-radius: 10px;
 }
+
+/* Request-intake lab refinements: print-safe, step-by-step practice slides */
+.request-story.stage-grid {
+  margin-top: 1.15rem;
+}
+
+.request-story .stage-card {
+  min-height: 170px;
+}
+
+.request-story .stage-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.request-story .stage-card svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.request-table {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+  margin-top: 1rem;
+}
+
+.request-table > div {
+  display: grid;
+  grid-template-columns: 86px 86px minmax(0, 1fr);
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--ag-line);
+  border-radius: 14px;
+  padding: 0.68rem 0.8rem;
+  background: #fff;
+}
+
+.request-table b {
+  color: var(--ag-blue);
+  font-weight: var(--fw-black);
+}
+
+.request-table span {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.18rem 0.42rem;
+  background: #eef4ff;
+  color: #174ea6;
+  font-size: 0.72rem;
+  font-weight: var(--fw-black);
+}
+
+.request-table em {
+  color: var(--ag-ink);
+  font-size: 0.82rem;
+  font-style: normal;
+  font-weight: var(--fw-semibold);
+  line-height: 1.28;
+  word-break: keep-all;
+}
+
+.mini-checklist.numbered {
+  counter-reset: lab-step;
+}
+
+.mini-checklist.numbered span::before {
+  counter-increment: lab-step;
+  content: counter(lab-step);
+}
+
+.copy-focus {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.52fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.copy-focus > div:first-child {
+  border: 1px solid var(--ag-line);
+  border-radius: 18px;
+  padding: 0.9rem;
+  background: #fff;
+}
+
+.copy-focus h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.7rem;
+  color: var(--ag-ink);
+  font-size: 1.05rem;
+  font-weight: var(--fw-black);
+}
+
+.copy-focus h3 svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  color: var(--ag-blue);
+}
+
+.copy-focus .copy-code.compact pre {
+  max-height: 392px;
+}
+
+.copy-focus.wide-copy {
+  grid-template-columns: minmax(235px, 0.42fr) minmax(0, 1fr);
+}
+
+.copy-focus.wide-copy .copy-code.compact pre {
+  max-height: 428px;
+}
+
+.field-chip-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.9rem;
+}
+
+.field-chip-grid span {
+  border: 1px solid #c9dbf8;
+  border-radius: 14px;
+  padding: 0.68rem 0.78rem;
+  background: #fff;
+  color: var(--ag-ink);
+  font-size: 0.92rem;
+  font-weight: var(--fw-black);
+  text-align: center;
+}
+
+.slidev-layout:has(.field-chip-grid) .copy-code,
+.slidev-layout:has(.copy-focus) .copy-code {
+  margin-top: 0;
+}
+
+.field-chip-grid.compact-fields {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.62rem;
+}
+
+.field-chip-grid.compact-fields span {
+  padding: 0.48rem 0.42rem;
+  font-size: 0.72rem;
+  line-height: 1.22;
+}
+
+/* Final visual QA tightening for dense PDF pages */
+.curriculum-board {
+  gap: 0.55rem;
+  margin-top: 0.65rem;
+}
+
+.curriculum-board > div {
+  min-height: 350px;
+  padding: 0.72rem;
+}
+
+.curriculum-board em {
+  padding: 0.26rem 0.45rem;
+  font-size: 0.66rem;
+}
+
+.curriculum-board b {
+  margin-top: 0.38rem;
+  font-size: 0.84rem;
+  line-height: 1.18;
+}
+
+.curriculum-board ul {
+  margin-top: 0.45rem;
+  padding-left: 0.85rem;
+}
+
+.curriculum-board li {
+  margin: 0.18rem 0;
+  font-size: 0.62rem;
+  line-height: 1.24;
+}
+
+.curriculum-board strong {
+  margin-top: 0.42rem;
+  padding-top: 0.45rem;
+  font-size: 0.68rem;
+  line-height: 1.24;
+}
+
+.slidev-layout:has(.ai-flow) .evidence-band,
+.slidev-layout:has(.copy-focus) .bottom-line,
+.slidev-layout:has(.lane-comparison) .source-line {
+  margin-top: 0.5rem;
+  padding: 0.48rem 0.72rem;
+  font-size: 0.72rem;
+  line-height: 1.28;
+}
+
+.slidev-layout:has(.copy-focus) .copy-code.compact pre {
+  max-height: 360px;
+}
+
+.slidev-layout:has(.lane-comparison) .copy-code.compact pre {
+  max-height: 88px;
+}
+
+.slidev-layout:has(.pipeline-row) .pipeline-row {
+  margin: 0.82rem 0 0.72rem;
+}
+
+.slidev-layout:has(.pipeline-row) .pipeline-row div {
+  min-height: 98px;
+  padding: 0.78rem;
+}
+
+.slidev-layout:has(.pipeline-row) .practice-brief {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.7rem;
+}
+
+.slidev-layout:has(.pipeline-row) .practice-brief div {
+  min-height: 116px;
+  padding: 0.7rem;
+}
+
+.slidev-layout:has(.pipeline-row) .practice-brief em {
+  font-size: 0.68rem;
+}
+
+.slidev-layout:has(.pipeline-row) .practice-brief b {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  line-height: 1.26;
+}
+
+.slidev-layout:has(.model-thinking-layout) .source-line,
+.slidev-layout:has(.workspace-flow-map) .evidence-band {
+  margin-top: 0.45rem;
+  padding: 0.42rem 0.68rem;
+  font-size: 0.66rem;
+  line-height: 1.24;
+}
