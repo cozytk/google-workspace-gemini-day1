@@ -5160,3 +5160,23 @@ body,
   font-size: 0.66rem;
   line-height: 1.24;
 }
+
+/* Final G005 review fix: keep curriculum overview fully inside PDF viewport. */
+.curriculum-board {
+  margin-top: 0.5rem;
+}
+.curriculum-board > div {
+  min-height: 326px;
+  padding: 0.62rem;
+}
+.curriculum-board li {
+  margin: 0.12rem 0;
+  font-size: 0.58rem;
+  line-height: 1.18;
+}
+.curriculum-board strong {
+  margin-top: 0.32rem;
+  padding-top: 0.35rem;
+  font-size: 0.62rem;
+  line-height: 1.18;
+}

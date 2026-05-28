@@ -8,7 +8,8 @@
     "dev": "slidev --open",
     "process:walkthroughs": "node scripts/process-walkthroughs.mjs",
     "export": "slidev export",
-    "visual:qa": "node scripts/visual-qa-slidev.mjs"
+    "visual:qa": "node scripts/visual-qa-slidev.mjs",
+    "generate:request-bboxes": "node scripts/generate-request-intake-fallback-bboxes.mjs"
   },
   "dependencies": {
     "@slidev/cli": "^52.15.2",

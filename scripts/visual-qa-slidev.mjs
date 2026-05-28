@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
+import net from 'node:net'
 import { spawn } from 'node:child_process'
 import { chromium } from 'playwright-chromium'
 import sharp from 'sharp'
@@ -21,10 +22,12 @@ for (let i = 2; i < process.argv.length; i += 1) {
 }
 
 const root = path.resolve(new URL('..', import.meta.url).pathname)
-const port = Number(args.get('port') || process.env.SLIDEV_PORT || 3030)
+const explicitUrl = args.has('url')
+const explicitPort = args.has('port') || Boolean(process.env.SLIDEV_PORT)
+let port = explicitPort ? Number(args.get('port') || process.env.SLIDEV_PORT) : await getFreePort()
 const viewportWidth = Number(args.get('width') || 1280)
 const viewportHeight = Number(args.get('height') || 720)
-const routeBase = args.get('url') || `http://localhost:${port}`
+const routeBase = explicitUrl ? args.get('url') : `http://localhost:${port}`
 const runId = args.get('run-id') || new Date().toISOString().replace(/[:.]/g, '-').replace('T', 'T').replace('Z', 'Z')
 const outDir = path.resolve(root, args.get('out-dir') || path.join('.omx', 'visual-checks', runId))
 const keepServer = args.get('keep-server') === 'true'
@@ -32,6 +35,19 @@ const maxSlidesOverride = args.has('slides') ? Number(args.get('slides')) : null
 
 function log(message) {
   console.log(`[visual-qa] ${message}`)
+}
+
+async function getFreePort() {
+  return new Promise((resolve, reject) => {
+    const server = net.createServer()
+    server.unref()
+    server.on('error', reject)
+    server.listen(0, '127.0.0.1', () => {
+      const address = server.address()
+      const freePort = typeof address === 'object' && address ? address.port : 3030
+      server.close(() => resolve(freePort))
+    })
+  })
 }
 
 async function exists(url) {
@@ -44,6 +60,22 @@ async function exists(url) {
   } catch {
     return false
   }
+}
+
+
+async function gotoRoute(page, url) {
+  let lastError
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30_000 })
+      await page.waitForLoadState('networkidle', { timeout: 7_000 }).catch(() => {})
+      return
+    } catch (error) {
+      lastError = error
+      await page.waitForTimeout(600 * attempt).catch(() => {})
+    }
+  }
+  throw lastError
 }
 
 async function waitForServer(url, timeoutMs = 60_000) {
@@ -158,27 +190,42 @@ await fs.mkdir(outDir, { recursive: true })
 let server = null
 let serverStartedByScript = false
 try {
-  if (!(await waitForServer(routeBase, 1500))) {
-    log(`starting Slidev on port ${port}`)
+  if (explicitUrl) {
+    const ready = await waitForServer(routeBase, 60_000)
+    if (!ready) throw new Error(`Slidev server did not become ready at ${routeBase}`)
+    log(`using explicit Slidev URL ${routeBase}`)
+  } else {
+    if (await waitForServer(routeBase, 1000)) {
+      throw new Error(`Refusing to reuse an implicit server at ${routeBase}; pass --url explicitly to audit an already-running deck`)
+    }
+    log(`starting isolated Slidev on port ${port}`)
     server = startSlidev()
     serverStartedByScript = true
     const ready = await waitForServer(routeBase, 60_000)
     if (!ready) throw new Error(`Slidev server did not become ready at ${routeBase}`)
-  } else {
-    log(`reusing existing Slidev server at ${routeBase}`)
   }
 
   const browser = await chromium.launch({ headless: true })
   const page = await browser.newPage({ viewport: { width: viewportWidth, height: viewportHeight }, deviceScaleFactor: 1 })
-  await page.goto(`${routeBase}/1`, { waitUntil: 'networkidle' })
+  await gotoRoute(page, `${routeBase}/1`)
   await page.waitForTimeout(700)
-  const slidevTotal = await page.evaluate(() => window.__slidev__?.nav?.total ?? 0)
+  const identity = await page.evaluate(() => ({
+    title: document.title,
+    total: window.__slidev__?.nav?.total ?? 0,
+    firstHeading: document.querySelector('h1')?.textContent?.trim() || '',
+  }))
+  if (!identity.title.includes('Google Workspace Gemini Day 1')) {
+    throw new Error(`Deck identity mismatch at ${routeBase}: title="${identity.title}"`)
+  }
+  const slidevTotal = identity.total
+  if (!Number.isFinite(slidevTotal) || slidevTotal <= 0) throw new Error(`Unable to determine Slidev slide total from ${routeBase}`)
+  if (slidevTotal < 60) throw new Error(`Deck identity mismatch at ${routeBase}: only ${slidevTotal} slides detected`)
   const total = maxSlidesOverride || slidevTotal
-  if (!Number.isFinite(total) || total <= 0) throw new Error(`Unable to determine Slidev slide total from ${routeBase}`)
+  if (!Number.isFinite(total) || total <= 0) throw new Error(`Invalid capture slide count: ${total}`)
 
   const results = []
   for (let i = 1; i <= total; i += 1) {
-    await page.goto(`${routeBase}/${i}`, { waitUntil: 'networkidle' })
+    await gotoRoute(page, `${routeBase}/${i}`)
     await page.waitForFunction((n) => window.__slidev__?.nav?.currentPage === n, i, { timeout: 5000 }).catch(() => {})
     await page.waitForTimeout(450)
     const file = path.join(outDir, `slide-${String(i).padStart(2, '0')}.png`)

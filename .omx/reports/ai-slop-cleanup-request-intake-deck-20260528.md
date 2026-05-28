@@ -1,43 +1,33 @@
-AI SLOP CLEANUP REPORT
-======================
+# AI Slop Cleanup — Request-Intake Workspace Gemini Deck
 
-Scope: `components/CopyBlock.vue`, `slides.md`, `style.css`, and generated request-intake walkthrough integration.
+Date: 2026-05-28
+Scope: changed deck files only — `slides.md`, `style.css`, `components/CopyBlock.vue`, `package.json`, `scripts/visual-qa-slidev.mjs`, `scripts/generate-request-intake-fallback-bboxes.mjs`, request-intake walkthrough assets/reports.
 
-Behavior Lock: Re-ran `pnpm run process:walkthroughs`, `pnpm run build`, `pnpm run export`, and `pnpm run visual:qa -- --run-id final-leader-compact-20260528T034146Z` after the cleanup pass.
+## Result
 
-Cleanup Plan:
-- Keep the rewrite bounded to the request-intake lecture flow and print-safe Slidev layout.
-- Remove learner-facing density/overflow in hands-on slides by splitting prompt/code/TSV steps.
-- Preserve safe synthetic sample data and avoid real company data.
-- Treat fallback-like wording carefully: Korean `임시` occurrences are content labels (`임시 접속`, `임시보관함`), not fallback control paths.
+Status: **passed**
 
-Fallback Findings:
-- `rg` fallback scan found only Korean content labels and synthetic walkthrough labels.
-- Synthetic `request-intake-*` screenshot assets are a grounded safety fallback: documented as local HTML mocks, generated reproducibly by Playwright bbox scripts, and used because logged-in Google capture would create forms/drafts/events/folders without sandbox authorization.
-- No masking fallback slop, swallowed errors, silent defaults, or bypass logic was introduced in the deck changes.
+## Checks
 
-UI/Design Findings:
-- Dense operational slides were the main slop risk. Gemini, NotebookLM, Sheets, Apps Script, Forms, Gmail, Calendar, and Drive labs now use one-action-per-slide sequencing.
-- Final visual QA shows no learner-facing overflow; residual issue slides are only benign h1 title-height heuristics from the automated DOM check.
+- Removed scope drift and slop introduced during broad rewrite:
+  - Day 1 request-intake flow no longer teaches external API, Webhook/Slack, or production email sending.
+  - Gmail action stays draft-only; no `sendEmail` path remains in the deck/components/new scripts.
+  - Calendar/Drive step text now matches the synthetic bbox screenshots.
+  - Data Studio is framed as optional extension, not the core completion artifact.
+- Visual QA harness hardened instead of masking failures:
+  - Starts an isolated Slidev server by default.
+  - Reuse requires explicit `--url`.
+  - Checks deck title and actual slide count.
+  - Supports partial `--slides` audits after identity verification.
+- Synthetic fallback bbox assets remain explicitly labeled as synthetic/sandbox-safe and generated from Playwright DOM `getBoundingClientRect()` coordinates.
 
-Passes Completed:
-- Fallback-like code resolution gate — preserved grounded synthetic bbox fallback with explicit limitations; no masking fallback found.
-1. Dead code deletion — N/A, no dead deck code identified in scoped files.
-2. Duplicate removal — repeated lab instructions normalized into `mini-checklist numbered`, `copy-focus`, and request-intake sample snippets.
-3. Naming/error handling cleanup — changed unsafe “Gmail 발송” framing to “Gmail 초안” and added explicit no-send/no-external-share boundaries.
-4. Test reinforcement — validated with build/export/walkthrough processing/full visual QA.
+## Validation after cleanup
 
-Quality Gates:
-- Regression tests: PASS (`pnpm run process:walkthroughs`)
-- Build: PASS (`pnpm run build`, known upstream Rolldown warnings only)
-- Export: PASS (`pnpm run export`)
-- Visual QA: PASS with benign title-height heuristics only (`final-leader-compact-20260528T034146Z`)
-- Lint/typecheck: N/A; package has no lint/typecheck scripts for this Slidev deck.
-
-Changed Files:
-- `components/CopyBlock.vue` — synthetic request-intake snippets.
-- `slides.md` — service intros and step-by-step labs.
-- `style.css` — print-safe request-intake layouts and visual QA tightening.
-
-Remaining Risks:
-- Real logged-in Google UI can drift; recapture with a disposable sandbox account if the instructor later authorizes it.
+- `pnpm run generate:request-bboxes` — pass
+- `pnpm run process:walkthroughs` — pass
+- `node --check scripts/visual-qa-slidev.mjs scripts/generate-request-intake-fallback-bboxes.mjs` — pass
+- `pnpm run build` — pass; only known upstream Rolldown pure-annotation warnings
+- `pnpm run export` — pass; `slides-export.pdf` generated
+- `pnpm run visual:qa -- --run-id final-fixes-retry-20260528T0425Z` — pass; 84 routes captured; remaining issue slides are h1 scroll-height heuristics only with `overflowCount=0`
+- `pnpm run visual:qa -- --run-id partial-smoke-20260528T0432Z --slides 2` — pass; partial audit path verified
+- `git diff --check` — pass

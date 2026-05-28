@@ -1,6 +1,6 @@
 # Synthetic request-intake fallback bbox assets
 
-Generated: 2026-05-28T03:34:10.859Z
+Generated: 2026-05-28T03:59:54.788Z
 
 These assets are synthetic local HTML mocks, not screenshots from a logged-in Google account. They exist as safe fallback placeholders for Forms/Gmail/Calendar/Drive request-intake teaching until an instructor sandbox account can recapture real UI.
 

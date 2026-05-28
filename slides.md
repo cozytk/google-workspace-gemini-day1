@@ -13,7 +13,7 @@ download: true
 
 # Google Workspace 자동화와<br/>Agent 기획
 
-<p class="lead">Workspace · Apps Script · Data Studio 심화 실습을 통해 교육 후 즉시 활용 가능한 자동화 툴과 Agent 기획서를 만듭니다.</p>
+<p class="lead">Workspace · Apps Script 실습으로 공용 요청함 자동화 툴을 만들고, Data Studio는 선택 확장 대시보드로 다룹니다.</p>
 
 <div class="tool-strip">
   <span><logos-google-gemini /> Gemini</span>
@@ -71,7 +71,7 @@ download: true
   <div>
     <span>⚙️ <strong>처리</strong></span>
     <b>Workspace 자동화 실습</b>
-    <p>Gemini, Apps Script, Data Studio로 바로 쓰는 자동화 산출물을 만든다.</p>
+    <p>Gemini와 Apps Script로 바로 쓰는 요청 처리 산출물을 만들고, Data Studio는 선택 확장으로 연결한다.</p>
   </div>
   <div>
     <span>📤 <strong>출력</strong></span>
@@ -86,7 +86,7 @@ download: true
 
 # 1일차 상세 커리큘럼
 
-<p class="sublead">Workspace · Apps Script · Data Studio 심화 실습 과정으로, 각 파트는 바로 사용할 산출물 하나를 남깁니다.</p>
+<p class="sublead">Workspace · Apps Script 중심 실습 과정으로, 공용 요청함 자동화 산출물을 먼저 만들고 Data Studio는 선택 확장으로 다룹니다.</p>
 
 <div class="curriculum-board">
   <div>
@@ -103,26 +103,26 @@ download: true
   </div>
   <div>
     <em>12:00–14:30</em>
-    <b>Apps Script 고도화: 이벤트 기반 자동화·외부 API 연동</b>
+    <b>Apps Script 고도화: 이벤트 기반 요청 처리</b>
     <ul>
       <li>onFormSubmit · 시간 기반 · onChange 트리거</li>
-      <li>Form → Sheet → Gmail 자동 답신 파이프라인</li>
-      <li>UrlFetchApp으로 환율·뉴스 데이터 자동 수집</li>
+      <li>Form → Sheet → Gmail 초안 검토 파이프라인</li>
+      <li>Sheet 상태값 기록과 담당자 검토 단계 설계</li>
       <li>Drive + Calendar 일정·파일 관리 봇</li>
-      <li>Logger / Webhook 기반 실패 알림</li>
+      <li>Logger 기반 실패 로그와 재처리 체크리스트</li>
     </ul>
-    <strong>실제 동작하는 이메일 자동 처리 시스템</strong>
+    <strong>검토만 수행하는 요청 초안 검토 시스템</strong>
   </div>
   <div>
     <em>14:30–16:00</em>
-    <b>Data Studio: 의사결정용 실시간 대시보드</b>
+    <b>선택 확장: Data Studio 처리 현황 대시보드</b>
     <ul>
       <li>Sheets → Data Studio 실시간 연결</li>
-      <li>스코어카드 · 트렌드 라인 · 드릴다운 필터</li>
-      <li>부서별 KPI 대시보드와 공유 URL</li>
+      <li>처리 건수 · 상태 추세 · 담당자 필터</li>
+      <li>부서별 처리 현황 대시보드와 공유 URL</li>
       <li>Apps Script 스케줄러 기반 자동 갱신</li>
     </ul>
-    <strong>공유 가능한 KPI 대시보드 URL</strong>
+    <strong>선택 확장 처리 현황 대시보드 URL</strong>
   </div>
   <div>
     <em>16:00–17:00</em>
@@ -155,12 +155,12 @@ download: true
   <div class="time-slot">
     <b>12:00–14:30</b>
     <span>Apps Script 고도화</span>
-    <em>트리거 · 자동 답신 · 외부 API · 실패 알림</em>
+    <em>트리거 · Gmail 초안 · 상태 로그 · 실패 기록</em>
   </div>
   <div class="time-slot">
     <b>14:30–16:00</b>
-    <span>Data Studio 대시보드</span>
-    <em>실시간 연결 · KPI 화면 · 자동 갱신</em>
+    <span>Data Studio 선택 확장</span>
+    <em>처리 현황 · 필터 화면 · 공유 권한</em>
   </div>
   <div class="time-slot">
     <b>16:00–17:00</b>
@@ -178,13 +178,13 @@ download: true
 <div class="outcome-grid">
   <div>
     <span>🧰</span>
-    <b>이메일 자동 처리 시스템</b>
+    <b>요청 초안 검토 시스템</b>
     <p>Form, Sheet, Gmail, Drive, Calendar를 연결한 이벤트 기반 파이프라인</p>
   </div>
   <div>
     <span>📊</span>
-    <b>KPI 대시보드 URL</b>
-    <p>Data Studio 스코어카드, 트렌드 라인, 드릴다운 필터와 자동 갱신 구조</p>
+    <b>선택 확장 대시보드 URL</b>
+    <p>요청 처리 현황 스코어카드, 트렌드 라인, 필터와 공유 권한 구조</p>
   </div>
   <div>
     <span>🤖</span>
@@ -255,7 +255,7 @@ download: true
   </div>
 </div>
 
-<div class="evidence-band">완료 모습: 요청 목록 Sheet · Gmail 초안 · Calendar/Drive 후속 조치 · Data Studio 처리 현황 대시보드</div>
+<div class="evidence-band">완료 모습: 요청 목록 Sheet · Gemini 분류 · NotebookLM 근거 · Gmail 초안 · Calendar/Drive 후속 조치</div>
 
 ---
 
@@ -791,6 +791,7 @@ layout: section
       <span>제목을 <b>요청 처리 규정 샘플</b>로 입력</span>
     </div>
     <p>NotebookLM은 넣은 소스에 근거해 답합니다. 아직 답을 묻지 말고 소스부터 고정합니다.</p>
+    <p class="source-line">로그인/쿼터 때문에 NotebookLM 화면이 다르면 강사 제공 캡처를 보고 같은 순서만 확인합니다.</p>
   </div>
 </div>
 
@@ -1012,9 +1013,9 @@ layout: section
 
 <div class="kicker">Day 1 > Part 2 > Apps Script</div>
 
-# Apps Script 고도화: 이벤트 기반 자동화와 API 연동
+# Apps Script 고도화: 이벤트 기반 요청 처리
 
-<p class="lead">12:00–14:30 · 트리거, 자동 답신, 외부 API 수집, Drive/Calendar 봇, 실패 알림까지 실제 동작하는 자동 처리 시스템을 만든다.</p>
+<p class="lead">12:00–14:30 · 트리거, Gmail 초안 생성, Drive/Calendar 후속 조치, 실패 로그까지 안전하게 검토 가능한 요청 처리 시스템을 만든다.</p>
 
 ---
 
@@ -1025,8 +1026,8 @@ layout: section
 <div class="practice-brief">
   <div><em>목표</em><b>이벤트가 발생하면 Workspace 앱이 자동으로 움직이게 만든다.</b></div>
   <div><em>시작 화면</em><b>Google Form · Sheet · Apps Script 편집기</b></div>
-  <div><em>수행</em><b>트리거 설정 → Gmail 답신 → API 수집 → Drive/Calendar 연동 → 실패 알림</b></div>
-  <div><em>완료 증거</em><b>메일 발송 로그, 시트 기록, Slack/Webhook 실패 알림 테스트</b></div>
+  <div><em>수행</em><b>트리거 설정 → Gmail 초안 생성 → Drive/Calendar 연동 → 실패 로그 확인</b></div>
+  <div><em>완료 증거</em><b>Gmail 초안, 시트 기록, Apps Script 로그, 확인 필요 상태 행</b></div>
 </div>
 
 ---
@@ -1158,7 +1159,7 @@ layout: section
 
 <div class="statement-panel">
   <b>트리거가 이벤트를 감지하고, 스크립트가 판단하며, Workspace 앱이 결과를 실행한다.</b>
-  <span>수작업으로 반복하던 “확인 → 복사 → 발송 → 기록”을 하나의 운영 흐름으로 묶는다.</span>
+  <span>수작업으로 반복하던 “확인 → 복사 → 초안 작성 → 기록”을 하나의 검토 흐름으로 묶는다.</span>
 </div>
 
 <div class="tool-strip compact">
@@ -1166,7 +1167,6 @@ layout: section
   <span><logos-google-drive /> Drive</span>
   <span><logos-google-gmail /> Gmail</span>
   <span><logos-google-calendar /> Calendar</span>
-  <span><carbon-api /> External API</span>
 </div>
 
 ---
@@ -1184,7 +1184,7 @@ layout: section
   <div>
     <carbon-time />
     <b>시간 기반</b>
-    <span>매일 오전 9시, 매주 월요일처럼 정해진 주기로 API 수집과 대시보드 갱신을 실행한다.</span>
+    <span>매일 오전 9시처럼 정해진 주기로 미처리 요청과 오래된 초안을 점검한다.</span>
   </div>
   <div>
     <carbon-data-table />
@@ -1210,7 +1210,7 @@ layout: section
 <div class="practice-brief plain-boxes">
   <div><em>왜 초안인가</em><b>실습 안전을 위해 실제 발송하지 않음</b></div>
   <div><em>확인 위치</em><b>Gmail Drafts에서 제목·본문 확인</b></div>
-  <div><em>확장</em><b>승인 후에만 sendEmail로 변경</b></div>
+  <div><em>확장</em><b>발송은 범위 밖 · 초안 검토만 수행</b></div>
   <div><em>기록</em><b>Sheet 행 번호와 draft 생성 시간을 로그로 남김</b></div>
 </div>
 
@@ -1227,13 +1227,13 @@ layout: section
       <span>Apps Script 편집기에서 새 함수 붙여넣기</span>
       <span>실습 중에는 <b>createDraft</b>만 사용</span>
       <span>Run 후 권한 승인 화면이 나오면 강사 안내에 따라 진행</span>
-      <span>Gmail Drafts에서 실제 발송 전 내용을 검토</span>
+      <span>Gmail Drafts에서 초안 내용을 검토</span>
     </div>
   </div>
   <CopyBlock class="compact" text-key="appScriptDraftPipeline" />
 </div>
 
-<div class="source-line">실습 기본값은 발송이 아니라 Gmail 초안 생성입니다. 실제 발송이 필요한 경우 <code>createDraft</code>를 <code>sendEmail</code>로 바꿉니다.</div>
+<div class="source-line">실습 범위는 Gmail 초안 생성과 검토까지입니다. 실제 발송 자동화는 강사 통제 sandbox 검토 전까지 다루지 않습니다.</div>
 
 ---
 
@@ -1271,7 +1271,7 @@ layout: section
     <h3><logos-google-calendar /> 버튼 순서</h3>
     <div class="mini-checklist numbered">
       <span>Calendar에서 <b>Create</b> 클릭</span>
-      <span>제목에 <b>REQ-005 신규 입사자 OT</b> 입력</span>
+      <span>제목에 <b>[실습] REQ-001 VPN 지원 확인</b> 입력</span>
       <span>일시와 참석자를 요청 내용대로 채움</span>
       <span>교육용 계정에서만 Save, 일반 실습은 초안 확인 후 닫기</span>
     </div>
@@ -1293,7 +1293,7 @@ layout: section
     <h3><logos-google-drive /> 버튼 순서</h3>
     <div class="mini-checklist numbered">
       <span>Drive에서 <b>New > Folder</b> 클릭</span>
-      <span>폴더명을 <b>REQ-006 프로젝트 자료</b>로 입력</span>
+      <span>폴더명을 <b>REQ-001_VPN_지원_합성데이터</b>로 입력</span>
       <span><b>Share</b> 클릭 후 공유 대상과 권한 확인</span>
       <span>외부 공유·링크 복사는 강사 안내 없이는 실행하지 않기</span>
     </div>
@@ -1305,24 +1305,23 @@ layout: section
 
 <div class="kicker">Day 1 > Apps Script > 실습 2</div>
 
-# 외부 API 연동: 최신 데이터 수집
+# Sheet 상태 로그: 요청을 놓치지 않기
 
 <div class="api-contrast">
   <div>
-    <b>수동 업데이트</b>
-    <p>환율, 뉴스, 공시, 가격 정보를 사람이 찾아 붙여 넣는다.</p>
+    <b>기록 전</b>
+    <p>메일·채팅·구두 요청이 흩어져 담당자와 다음 행동이 불명확하다.</p>
   </div>
   <div>
-    <b>UrlFetchApp 연동</b>
-    <p>정해진 시간에 API를 호출하고 Sheet에 기록해 보고서와 대시보드를 갱신한다.</p>
+    <b>기록 후</b>
+    <p>Sheet에 상태, 담당자, 다음 확인 질문, 초안 생성 시각을 남겨 검토 가능한 흐름을 만든다.</p>
   </div>
 </div>
 
 <CopyBlock>
-function fetchExchangeRate() {
-  const res = UrlFetchApp.fetch('https://api.example.com/rates-or-news')
-  const data = JSON.parse(res.getContentText())
-  SpreadsheetApp.getActiveSheet().appendRow([new Date(), data.usdKrw])
+function appendRequestStatus(row, status, owner, nextAction) {
+  const sheet = SpreadsheetApp.getActiveSheet()
+  sheet.appendRow([new Date(), row.requestId, status, owner, nextAction])
 }
 </CopyBlock>
 
@@ -1350,8 +1349,8 @@ function fetchExchangeRate() {
   </div>
   <div class="stage-card">
     <span class="stage-num">04</span>
-    <h3>알림 발송</h3>
-    <p>담당자에게 검토 링크와 마감일을 메일로 보낸다.</p>
+    <h3>초안 준비</h3>
+    <p>담당자가 검토할 링크와 마감일을 Gmail 초안에 넣어 둔다.</p>
   </div>
 </div>
 
@@ -1364,19 +1363,19 @@ function fetchExchangeRate() {
 <div class="failure-layout">
   <div class="failure-main">
     <b>🚨 Error Handling</b>
-    <p>API 실패, 권한 오류, 메일 발송 실패, 빈 데이터 입력은 정상 시나리오처럼 설계한다.</p>
+    <p>권한 오류, 빈 데이터, 초안 생성 실패를 정상 시나리오처럼 기록한다.</p>
   </div>
   <div>
     <b>Logger</b>
     <p>실패 위치와 입력값을 기록해 재현 가능한 증거를 남긴다.</p>
   </div>
   <div>
-    <b>Webhook</b>
-    <p>Slack 또는 메일로 실패 알림을 보내 사람이 개입할 지점을 만든다.</p>
+    <b>Sheet 상태</b>
+    <p>행 상태를 확인 필요로 바꾸고 담당자가 수동 검토할 수 있게 한다.</p>
   </div>
   <div>
     <b>Retry Rule</b>
-    <p>재실행 가능한 실패와 사람에게 넘길 실패를 구분한다.</p>
+    <p>다시 실행할 실패와 사람에게 넘길 실패를 구분한다.</p>
   </div>
 </div>
 
@@ -1389,13 +1388,13 @@ function fetchExchangeRate() {
 <div class="lab-board">
   <div>
     <span>📨</span>
-    <b>이메일 자동 처리 시스템</b>
-    <p>Form 제출 후 Sheet 기록과 Gmail 답신이 자동으로 실행된다.</p>
+    <b>요청 초안 검토 시스템</b>
+    <p>Form 제출 후 Sheet 기록과 Gmail 초안 생성이 자동으로 실행된다.</p>
   </div>
   <div>
     <span>🌐</span>
-    <b>외부 API 수집 함수</b>
-    <p>환율·뉴스 같은 최신 데이터를 정해진 주기로 가져와 대시보드 원천 데이터로 쓴다.</p>
+    <b>상태 로그와 재처리 기준</b>
+    <p>Sheet 상태값, 담당자, 재처리 사유를 남겨 사람이 검토할 수 있게 만든다.</p>
   </div>
   <div>
     <span>🛡️</span>
@@ -1410,9 +1409,9 @@ layout: section
 
 <div class="kicker">Day 1 > Part 3 > Data Studio</div>
 
-# Data Studio: 의사결정용 실시간 KPI 대시보드
+# 선택 확장: Data Studio 처리 현황 대시보드
 
-<p class="lead">14:30–16:00 · 자동화된 Sheet 데이터를 경영진 보고용 실시간 KPI 대시보드와 공유 URL로 바꾼다.</p>
+<p class="lead">14:30–16:00 · 공용 요청함 Sheet 데이터를 처리 현황 대시보드로 바꾸는 선택 확장을 살펴본다.</p>
 
 ---
 
@@ -1424,7 +1423,7 @@ layout: section
   <div><em>목표</em><b>자동 갱신되는 Sheet 데이터를 의사결정 화면으로 바꾼다.</b></div>
   <div><em>시작 화면</em><b>Google Sheets · Data Studio</b></div>
   <div><em>수행</em><b>실시간 연결 → 혼합 소스 구성 → 스코어카드 → 트렌드 → 필터 → 공유 URL</b></div>
-  <div><em>완료 증거</em><b>KPI 대시보드 URL, 자동 갱신 기준, 공유 권한 설정</b></div>
+  <div><em>완료 증거</em><b>처리 현황 대시보드 URL, 자동 갱신 기준, 공유 권한 설정</b></div>
 </div>
 
 ---
@@ -1501,7 +1500,7 @@ layout: section
 <div class="component-grid">
   <div>
     <b>📌 지금 상태</b>
-    <span>현재 KPI 수치와 기준 대비 차이를 즉시 보여준다.</span>
+    <span>현재 처리 수치와 기준 대비 차이를 즉시 보여준다.</span>
   </div>
   <div>
     <b>📈 변화 방향</b>
@@ -1525,7 +1524,7 @@ layout: section
 
 ```mermaid
 flowchart LR
-  A[Forms / Gmail / API] --> B[Google Sheets]
+  A[Forms / Gmail draft / Calendar / Drive] --> B[Google Sheets]
   B --> C[Data Studio]
   C --> D[Scorecard]
   C --> E[Trend Line]
@@ -1544,15 +1543,15 @@ flowchart LR
 <div class="looker-source-grid">
   <div>
     <b>🔗 실시간 연결</b>
-    <span>Forms, Gmail, 외부 API 결과를 Sheets에 쌓고 Data Studio가 같은 표를 읽는다.</span>
+    <span>Forms, Gmail 초안 로그, Calendar/Drive 후속 조치를 Sheets에 쌓고 Data Studio가 같은 표를 읽는다.</span>
   </div>
   <div>
     <b>🧩 혼합 소스</b>
-    <span>부서 기준표, 목표값, 실적 데이터를 조인해 KPI 의미가 보이는 테이블로 만든다.</span>
+    <span>부서 기준표, 목표값, 실적 데이터를 조인해 요청 처리 의미가 보이는 테이블로 만든다.</span>
   </div>
   <div>
     <b>⏱️ 스케줄러</b>
-    <span>Apps Script 시간 기반 트리거로 API 수집과 데이터 정리를 반복 실행한다.</span>
+    <span>Apps Script 시간 기반 트리거로 오래된 미처리 요청을 점검한다.</span>
   </div>
   <div>
     <b>🔐 공유 기준</b>
@@ -1591,7 +1590,7 @@ flowchart LR
   <div class="flow-box">
     <div class="flow-icon">A</div>
     <h3>Apps Script</h3>
-    <p>정해진 시간에 데이터를 수집하고 정리한다.</p>
+    <p>정해진 시간에 미처리 요청과 로그를 점검한다.</p>
   </div>
   <div class="flow-box">
     <div class="flow-icon">B</div>
@@ -1614,7 +1613,7 @@ flowchart LR
 <div class="lab-board">
   <div>
     <span>📊</span>
-    <b>KPI 대시보드</b>
+    <b>처리 현황 대시보드</b>
     <p>스코어카드, 트렌드, 필터가 포함된 보고 화면</p>
   </div>
   <div>
@@ -1720,7 +1719,7 @@ layout: section
   </div>
   <div>
     <b>입력 데이터</b>
-    <span>메일, 문서, 시트, 파일, 외부 API 중 무엇을 읽는가?</span>
+    <span>메일 초안, 문서, 시트, 파일 중 무엇을 읽는가?</span>
   </div>
   <div>
     <b>Agent 행동</b>
@@ -1922,7 +1921,7 @@ layout: section
 <div class="debrief-grid">
   <div>
     <h3>🧰 오늘 만든 것</h3>
-    <p>Workspace 자동화, KPI 대시보드, Agent 기획서</p>
+    <p>Workspace 자동화, 처리 현황 대시보드, Agent 기획서</p>
   </div>
   <div>
     <h3>🤖 내일 만들 것</h3>
