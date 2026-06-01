@@ -1,0 +1,7 @@
+import{E as e,R as t,X as n,_ as r,_t as i,g as a,ht as o}from"./modules/shiki-CoBJKRyX.js";import{nt as s,rt as c}from"./index-OP9TfeLu.js";import{t as l}from"./slidev/default-D_oNFApG.js";var u={__name:`slides.md__slidev_19`,setup(u){let{$slidev:d,$nav:f,$clicksContext:p,$clicks:m,$page:h,$renderContext:g,$frontmatter:_}=c();return p.setup(),(c,u)=>(t(),r(l,i(e(o(s)(o(_),18))),{default:n(()=>[...u[0]||=[a(`div`,{class:`kicker`},`Day 1 > Gemini와 Workspace > Gem 세트 4/4`,-1),a(`h1`,null,`Gem 요소 4: 검증`,-1),a(`div`,{class:`gem-compare-slide`},[a(`div`,{class:`gem-principle`},[a(`em`,null,`Check`),a(`b`,null,`검증은 답을 더 길게 만드는 단계가 아니라 위험한 확정을 막는 안전장치입니다.`),a(`p`,null,`근거 없는 추정, 민감정보, 외부 발송, 권한 승인 지점을 분리해 사람이 확인할 수 있게 합니다.`)]),a(`div`,{class:`good-bad-grid`},[a(`div`,{class:`bad-example`},[a(`h3`,null,`아쉬운 예시`),a(`pre`,{class:`gem-code`},[a(`code`,null,`확실하게 답변하고
+바로 메일로 보내줘.`)]),a(`span`,null,`문제: 근거 부족, 개인정보, 승인 필요 여부를 건너뛰고 실행할 수 있습니다.`)]),a(`div`,{class:`good-example`},[a(`h3`,null,`좋은 예시`),a(`pre`,{class:`gem-code`},[a(`code`,null,`근거 문장이 없으면
+“확인 필요”로 표시한다.
+
+개인정보·계약·인사 조치가 포함되면
+발송하지 말고 승인자와 확인 질문을
+먼저 제시한다.`)]),a(`span`,null,`포인트: 자동화 전에 멈춰야 할 조건을 Gem에 포함합니다.`)])])],-1),a(`div`,{class:`source-line`},`실습 포인트: 개인 채팅 프롬프트가 아니라 팀에서 반복해서 쓰는 업무 프롬프트 세트를 만든다.`,-1)]]),_:1},16))}};export{u as default};

@@ -1,0 +1,7 @@
+import{E as e,R as t,X as n,_ as r,_t as i,g as a,ht as o}from"./modules/shiki-CoBJKRyX.js";import{nt as s,rt as c}from"./index-OP9TfeLu.js";import{t as l}from"./slidev/default-D_oNFApG.js";var u={__name:`slides.md__slidev_16`,setup(u){let{$slidev:d,$nav:f,$clicksContext:p,$clicks:m,$page:h,$renderContext:g,$frontmatter:_}=c();return p.setup(),(c,u)=>(t(),r(l,i(e(o(s)(o(_),15))),{default:n(()=>[...u[0]||=[a(`div`,{class:`kicker`},`Day 1 > Gemini와 Workspace > Gem 세트 1/4`,-1),a(`h1`,null,`Gem 요소 1: 역할`,-1),a(`div`,{class:`gem-compare-slide`},[a(`div`,{class:`gem-principle`},[a(`em`,null,`Role`),a(`b`,null,`역할은 “누구처럼 말할지”가 아니라 “어떤 책임으로 판단할지”를 고정합니다.`),a(`p`,null,`부서, 업무 권한, 검토 범위, 최종 결정권의 유무가 들어가야 같은 요청을 반복 처리할 수 있습니다.`)]),a(`div`,{class:`good-bad-grid`},[a(`div`,{class:`bad-example`},[a(`h3`,null,`아쉬운 예시`),a(`pre`,{class:`gem-code`},[a(`code`,null,`너는 친절한 HR 전문가야.
+직원 질문에 잘 답해줘.`)]),a(`span`,null,`문제: 부서 기준, 답변 권한, 승인 경계가 없어 민감한 규정도 확정 답변처럼 말할 수 있습니다.`)]),a(`div`,{class:`good-example`},[a(`h3`,null,`좋은 예시`),a(`pre`,{class:`gem-code`},[a(`code`,null,`너는 세아지주 본사 HR 운영팀의
+1차 규정 안내 담당자다.
+
+휴가·복리후생 질문에 답하되,
+해석이 필요한 사안은
+“HR 담당자 확인 필요”로 표시한다.`)]),a(`span`,null,`포인트: 담당 부서, 업무 범위, 권한 경계를 함께 지정합니다.`)])])],-1)]]),_:1},16))}};export{u as default};
